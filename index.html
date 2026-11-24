@@ -4,233 +4,838 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LUCXHUB | PS3 Store</title>
+<meta name="theme-color" content="#13051d">
+<title>LUCXHUB | PS3 STORE</title>
 
 <style>
 * {
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    background: #080c14;
-    color: #f1f5f9;
-    font-family: Arial, Helvetica, sans-serif;
+:root {
+    --pink: #ff00b8;
+    --cyan: #00eaff;
+    --purple: #8d31ff;
+    --blue: #1768ff;
+    --dark: #10051c;
 }
 
+body {
+    margin: 0;
+    color: white;
+    background: var(--dark);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+body {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(12, 3, 25, .1),
+            rgba(8, 3, 19, .94)
+        ),
+        radial-gradient(
+            ellipse at 50% 0%,
+            #ff168a 0%,
+            #7521c9 24%,
+            #142e82 48%,
+            #080514 80%
+        );
+    background-attachment: fixed;
+}
+
+body:before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    opacity: .22;
+    background:
+        repeating-linear-gradient(
+            135deg,
+            transparent 0px,
+            transparent 12px,
+            rgba(0, 234, 255, .09) 13px,
+            transparent 15px
+        );
+}
+
+/* ================= GRAFFITI DECORATION ================= */
+
+.graffiti {
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+    font-weight: 1000;
+    font-style: italic;
+    text-transform: uppercase;
+    user-select: none;
+    line-height: .85;
+}
+
+.graffiti-left {
+    left: -34px;
+    top: 260px;
+    transform: rotate(-18deg);
+    font-size: 72px;
+    color: #00eaff;
+    -webkit-text-stroke: 2px #101020;
+    text-shadow:
+        5px 5px #ff00b8,
+        9px 9px #5b00ff,
+        0 0 25px #00eaff;
+    opacity: .75;
+    animation: graffitiFloat 5s ease-in-out infinite;
+}
+
+.graffiti-right {
+    right: -35px;
+    top: 420px;
+    transform: rotate(17deg);
+    font-size: 65px;
+    color: #ff00b8;
+    -webkit-text-stroke: 2px #10051c;
+    text-shadow:
+        5px 5px #00eaff,
+        9px 9px #6d00ff,
+        0 0 25px #ff00b8;
+    opacity: .7;
+    animation: graffitiFloat 4s ease-in-out infinite reverse;
+}
+
+.spray {
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    opacity: .14;
+    filter: blur(20px);
+}
+
+.spray-a {
+    left: -50px;
+    top: 15%;
+    background: #00eaff;
+}
+
+.spray-b {
+    right: -50px;
+    top: 60%;
+    background: #ff00b8;
+}
+
+.paint {
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+    font-size: 100px;
+    opacity: .2;
+}
+
+.paint-a {
+    left: 5%;
+    bottom: 3%;
+    color: #ff00b8;
+    transform: rotate(-25deg);
+}
+
+.paint-b {
+    right: 4%;
+    top: 10%;
+    color: #00eaff;
+    transform: rotate(15deg);
+}
+
+/* ================= HEADER ================= */
+
 header {
-    background: linear-gradient(135deg, #101d32, #07101d);
-    padding: 25px 15px;
-    border-bottom: 2px solid #00aaff;
+    position: relative;
+    overflow: hidden;
     text-align: center;
+    padding: 55px 15px 35px;
+    border-bottom: 3px solid var(--pink);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8, 3, 20, .5),
+            rgba(60, 0, 90, .35),
+            rgba(8, 3, 20, .5)
+        );
+    box-shadow: 0 8px 30px #ff00b822;
+}
+
+header:before {
+    content: "★";
+    position: absolute;
+    left: 6%;
+    top: 15px;
+    font-size: 70px;
+    color: var(--cyan);
+    text-shadow: 0 0 20px var(--cyan);
+    animation: starSpin 12s linear infinite;
+}
+
+header:after {
+    content: "✦";
+    position: absolute;
+    right: 7%;
+    bottom: 10px;
+    font-size: 65px;
+    color: var(--pink);
+    text-shadow: 0 0 20px var(--pink);
+    animation: float 3s ease-in-out infinite;
 }
 
 .logo {
-    font-size: 32px;
-    font-weight: bold;
-    color: #00aaff;
+    position: relative;
+    z-index: 1;
+    font-size: clamp(40px, 8vw, 85px);
+    font-weight: 1000;
+    font-style: italic;
+    letter-spacing: -4px;
+    color: white;
+    -webkit-text-stroke: 1px #ffffff;
+    text-shadow:
+        4px 4px var(--pink),
+        8px 8px #5700ff,
+        0 0 25px var(--pink);
+    animation: logoGlow 2s alternate infinite;
 }
 
 .logo span {
-    color: white;
+    color: var(--cyan);
+    text-shadow:
+        3px 3px #004bff,
+        0 0 25px var(--cyan);
 }
 
 .subtitle {
-    color: #9baec4;
-    margin-top: 8px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    color: #ff70e5;
+    margin-top: 15px;
+    text-shadow: 0 0 12px #ff00b8;
 }
 
+.paint-text {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 22px;
+    background: var(--pink);
+    color: white;
+    font-size: 13px;
+    font-weight: 900;
+    transform: rotate(-2deg);
+    box-shadow: 5px 5px 0 #4500ff;
+}
+
+/* ================= LAYOUT ================= */
+
 .container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
+    width: 94%;
+    max-width: 1250px;
+    margin: 28px auto;
+    position: relative;
+    z-index: 1;
+}
+
+.panel {
+    background: rgba(9, 5, 25, .94);
+    border: 2px solid #7a24ff;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow:
+        0 0 20px #7a24ff33,
+        0 0 35px #ff00b811;
+}
+
+/* ================= SEARCH ================= */
+
+.search-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .search {
-    width: 100%;
+    flex: 1;
+    min-width: 180px;
     padding: 15px;
-    border-radius: 8px;
-    background: #111b2b;
+    border-radius: 9px;
+    border: 2px solid #7429d9;
+    background: #070414;
     color: white;
-    border: 1px solid #253952;
     font-size: 16px;
     outline: none;
 }
 
 .search:focus {
-    border-color: #00aaff;
+    border-color: var(--cyan);
+    box-shadow: 0 0 15px #00eaff55;
 }
+
+.refresh {
+    border: 2px solid var(--cyan);
+    background: #06172c;
+    color: var(--cyan);
+    border-radius: 9px;
+    padding: 12px 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.refresh:hover {
+    color: #000;
+    background: var(--cyan);
+    box-shadow: 0 0 20px var(--cyan);
+    transform: scale(1.03);
+}
+
+/* ================= FILTERS ================= */
 
 .categories {
     display: flex;
-    gap: 8px;
+    gap: 9px;
     flex-wrap: wrap;
-    margin: 15px 0;
+    margin-top: 18px;
 }
 
 .category {
-    padding: 10px 15px;
-    border-radius: 6px;
-    border: 1px solid #26374e;
-    background: #111b2b;
+    flex: 1;
+    min-width: 85px;
+    padding: 12px;
     color: white;
+    background: #170b32;
+    border: 1px solid #7030b9;
+    border-radius: 8px;
+    font-weight: bold;
     cursor: pointer;
+    transition: .25s;
 }
 
-.category.active,
 .category:hover {
-    background: #007ac2;
-    border-color: #00aaff;
+    border-color: var(--cyan);
+    color: var(--cyan);
+    transform: translateY(-3px);
 }
+
+.category.active {
+    color: white;
+    border-color: #ff6de9;
+    background: linear-gradient(90deg, #9000ff, #ff00b8);
+    box-shadow: 0 0 15px #ff00b855;
+}
+
+/* ================= STATUS ================= */
 
 .status {
-    color: #91a4bc;
-    margin: 15px 0;
+    padding: 13px;
+    margin: 18px 0;
+    color: var(--cyan);
+    background: rgba(7, 12, 28, .95);
+    border-left: 4px solid var(--cyan);
+    border-radius: 5px;
+    font-weight: bold;
 }
+
+.status.loading {
+    animation: pulse 1s infinite;
+}
+
+/* ================= FILE CARDS ================= */
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(230px, 1fr)
+    );
+    gap: 17px;
 }
 
 .card {
-    background: #111b2b;
-    border: 1px solid #24354b;
-    border-radius: 10px;
-    padding: 17px;
-    transition: 0.2s;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+        160deg,
+        #1b103b,
+        #080618
+    );
+    border: 2px solid #6826c9;
+    border-radius: 13px;
+    padding: 13px;
+    transition: .25s;
+    animation: cardAppear .45s ease both;
+}
+
+.card:before {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    left: -100%;
+    top: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--cyan),
+        var(--pink),
+        transparent
+    );
+    transition: .5s;
+}
+
+.card:hover:before {
+    left: 100%;
 }
 
 .card:hover {
-    border-color: #00aaff;
-    transform: translateY(-2px);
+    transform: translateY(-6px) scale(1.015);
+    border-color: var(--pink);
+    box-shadow:
+        0 0 18px #ff00b833,
+        0 0 25px #00eaff22;
 }
 
-.file-icon {
-    font-size: 35px;
-    margin-bottom: 10px;
+/* PORTADA ICONS */
+
+.cover {
+    position: relative;
+    width: 100%;
+    height: 175px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(
+            circle at center,
+            #391065,
+            #0b0821
+        );
+    border-radius: 8px;
+    margin-bottom: 13px;
+    border: 1px solid #3b2869;
 }
+
+.cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform .4s;
+}
+
+.card:hover .cover img {
+    transform: scale(1.07);
+}
+
+.cover-fallback {
+    font-size: 65px;
+    text-shadow: 0 0 20px #9c00ff;
+}
+
+/* FILE DETAILS */
 
 .file-name {
-    font-weight: bold;
     font-size: 16px;
-    word-break: break-word;
-    margin-bottom: 10px;
+    font-weight: 900;
+    text-align: center;
+    overflow-wrap: anywhere;
+    min-height: 42px;
+    margin: 7px 0;
+}
+
+.tag {
+    display: table;
+    margin: 0 auto 8px;
+    background: #250b45;
+    color: #ff67df;
+    border: 1px solid #a32bff;
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: bold;
 }
 
 .file-info {
-    color: #91a4bc;
+    text-align: center;
+    color: #b5a3d8;
     font-size: 13px;
-    margin-bottom: 14px;
+    margin: 10px 0 14px;
 }
 
 .download {
     display: block;
-    text-align: center;
     text-decoration: none;
-    background: #007ac2;
+    text-align: center;
     color: white;
-    font-weight: bold;
-    padding: 12px;
-    border-radius: 7px;
+    font-weight: 900;
+    padding: 13px;
+    border-radius: 8px;
+    border: 1px solid #ff56dc;
+    background: linear-gradient(90deg, #9400ff, #ff00a8);
+    transition: .25s;
 }
 
 .download:hover {
-    background: #009de8;
+    background: linear-gradient(90deg, #00bfff, #0066ff);
+    border-color: var(--cyan);
+    box-shadow: 0 0 16px #00eaff66;
 }
+
+/* ================= EMPTY ================= */
 
 .empty {
+    grid-column: 1/-1;
     text-align: center;
-    padding: 40px;
-    color: #91a4bc;
-    grid-column: 1 / -1;
+    padding: 45px 15px;
+    background: #100824;
+    border: 2px dashed #7132d5;
+    border-radius: 12px;
+    color: #baa6dc;
 }
 
-.refresh {
-    padding: 10px 15px;
-    background: #18263a;
-    color: white;
-    border: 1px solid #30445d;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.refresh:hover {
-    background: #263b57;
-}
+/* ================= FOOTER ================= */
 
 footer {
-    text-align: center;
-    color: #72839a;
+    position: relative;
+    z-index: 1;
+    margin-top: 45px;
     padding: 30px 15px;
-    border-top: 1px solid #172436;
-    margin-top: 35px;
+    text-align: center;
+    background: #090416;
+    border-top: 3px solid #7c00ff;
+    color: #b6a4d2;
 }
 
+.footer-logo {
+    font-size: 25px;
+    font-weight: 1000;
+    font-style: italic;
+    color: var(--pink);
+    text-shadow: 0 0 15px var(--pink);
+    margin-bottom: 12px;
+}
+
+.footer-graffiti {
+    color: var(--cyan);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes logoGlow {
+    from {
+        filter: brightness(1);
+    }
+
+    to {
+        filter: brightness(1.3);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes graffitiFloat {
+    0%, 100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: 15px;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .5;
+    }
+}
+
+@keyframes starSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 35px 10px;
+    }
+
+    .logo {
+        letter-spacing: -2px;
+    }
+
+    .subtitle {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .container {
+        width: 97%;
+    }
+
+    .panel {
+        padding: 12px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(
+            auto-fill,
+            minmax(145px, 1fr)
+        );
+        gap: 10px;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    .cover {
+        height: 120px;
+    }
+
+    .file-name {
+        font-size: 14px;
+    }
+
+    .download {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .category {
+        padding: 9px 5px;
+        font-size: 12px;
+    }
+
+    .graffiti-left {
+        font-size: 42px;
+    }
+
+    .graffiti-right {
+        font-size: 40px;
+    }
+
+    .paint {
+        font-size: 60px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
 </style>
 </head>
 
 <body>
 
+<!-- GRAFFITI DECORATIVOS -->
+
+<div class="graffiti graffiti-left">LUCX</div>
+<div class="graffiti graffiti-right">HUB</div>
+
+<div class="spray spray-a"></div>
+<div class="spray spray-b"></div>
+
+<div class="paint paint-a">✦</div>
+<div class="paint paint-b">★</div>
+
+<!-- HEADER -->
+
 <header>
-    <div class="logo">LUCX<span>HUB</span></div>
-    <div class="subtitle">PlayStation 3 · Downloads · Homebrew</div>
+
+    <div class="logo">
+        LUCX<span>HUB</span>
+    </div>
+
+    <div class="subtitle">
+        PS3 STORE · GAMING · DOWNLOAD ZONE
+    </div>
+
+    <div class="paint-text">
+        DOWNLOAD · PLAY · ENJOY
+    </div>
+
 </header>
+
+<!-- MAIN -->
 
 <div class="container">
 
-    <input
-        id="search"
-        class="search"
-        type="text"
-        placeholder="Buscar archivos..."
-    >
+    <div class="panel">
 
-    <div class="categories">
-        <button class="category active" data-category="all">Todos</button>
-        <button class="category" data-category="pkg">PKG</button>
-        <button class="category" data-category="zip">ZIP</button>
-        <button class="category" data-category="rap">RAP</button>
-        <button class="category" data-category="other">Otros</button>
+        <div class="search-row">
+
+            <input
+                id="search"
+                class="search"
+                type="text"
+                placeholder="🔎 Buscar archivos..."
+            >
+
+            <button
+                class="refresh"
+                onclick="loadFiles()"
+            >
+                ↻ ACTUALIZAR
+            </button>
+
+        </div>
+
+        <div class="categories">
+
+            <button class="category active"
+                data-category="all">
+                ★ TODOS
+            </button>
+
+            <button class="category"
+                data-category="pkg">
+                📦 PKG
+            </button>
+
+            <button class="category"
+                data-category="zip">
+                🗜 ZIP
+            </button>
+
+            <button class="category"
+                data-category="rap">
+                🔑 RAP
+            </button>
+
+            <button class="category"
+                data-category="other">
+                📁 OTROS
+            </button>
+
+        </div>
+
     </div>
 
-    <button class="refresh" onclick="loadFiles()">
-        ↻ Actualizar archivos
-    </button>
-
-    <div id="status" class="status">
-        Cargando archivos...
+    <div id="status" class="status loading">
+        ⟳ Conectando con LUCXHUB...
     </div>
 
     <div id="files" class="grid"></div>
 
 </div>
 
+<!-- FOOTER -->
+
 <footer>
-    LUCXHUB · PS3 STORE<br>
-    Archivos disponibles desde el repositorio
+
+    <div class="footer-logo">
+        LUCXHUB
+    </div>
+
+    <div class="footer-graffiti">
+        PS3 STORE · GAMING · HOMEBREW
+    </div>
+
+    <br>
+
+    Hecho para la comunidad.
+
 </footer>
 
 <script>
 
-const OWNER = "lucasameri2508-byte";
-const REPO = "LUCXHUB";
-const BRANCH = "main";
-const FOLDER = "Files";
+/* ======================================
+   CONFIGURACIÓN
+====================================== */
 
-let allFiles = [];
-let currentCategory = "all";
+var OWNER = "lucasameri2508-byte";
+var REPO = "LUCXHUB";
+var BRANCH = "main";
 
-function getExtension(name) {
-    let parts = name.split(".");
-    return parts.length > 1
-        ? parts.pop().toLowerCase()
-        : "";
+var FILES_FOLDER = "Files";
+var ICONS_FOLDER = "ICONS";
+
+var allFiles = [];
+var iconMap = {};
+var currentCategory = "all";
+
+/* ======================================
+   NOMBRE SIN EXTENSIÓN
+====================================== */
+
+function baseName(name) {
+
+    var dot = name.lastIndexOf(".");
+
+    if (dot === -1)
+        return name;
+
+    return name.substring(0, dot);
 }
 
+/* ======================================
+   EXTENSIÓN
+====================================== */
+
+function getExtension(name) {
+
+    var dot = name.lastIndexOf(".");
+
+    if (dot === -1)
+        return "";
+
+    return name.substring(dot + 1).toLowerCase();
+}
+
+/* ======================================
+   CATEGORÍAS
+====================================== */
+
 function getCategory(file) {
-    let ext = getExtension(file.name);
+
+    var ext = getExtension(file.name);
 
     if (ext === "pkg") return "pkg";
     if (ext === "zip") return "zip";
@@ -239,20 +844,31 @@ function getCategory(file) {
     return "other";
 }
 
+/* ======================================
+   ICONOS DE RESPALDO
+====================================== */
+
 function getIcon(file) {
-    let ext = getExtension(file.name);
+
+    var ext = getExtension(file.name);
 
     if (ext === "pkg") return "📦";
     if (ext === "zip" || ext === "rar" || ext === "7z")
-        return "🗜";
+        return "🗜️";
 
     if (ext === "rap") return "🔑";
+    if (ext === "iso") return "💿";
     if (ext === "txt") return "📄";
 
     return "📁";
 }
 
+/* ======================================
+   TAMAÑO
+====================================== */
+
 function formatSize(bytes) {
+
     if (bytes < 1024)
         return bytes + " B";
 
@@ -265,95 +881,187 @@ function formatSize(bytes) {
     return (bytes / 1073741824).toFixed(2) + " GB";
 }
 
-function loadFiles() {
+/* ======================================
+   URL API GITHUB
+====================================== */
 
-    let status = document.getElementById("status");
-    let container = document.getElementById("files");
+function apiFolder(folder) {
 
-    status.innerHTML = "Buscando archivos en GitHub...";
-    container.innerHTML = "";
-
-    let url =
-        "https://api.github.com/repos/" +
+    return "https://api.github.com/repos/" +
         OWNER + "/" + REPO +
-        "/contents/" + FOLDER +
+        "/contents/" + encodeURIComponent(folder) +
         "?ref=" + BRANCH;
+}
 
-    let xhr = new XMLHttpRequest();
+/* ======================================
+   CARGAR ICONS
+====================================== */
 
-    xhr.open("GET", url, true);
+function loadIcons(callback) {
+
+    iconMap = {};
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("GET", apiFolder(ICONS_FOLDER), true);
 
     xhr.onload = function() {
 
         if (xhr.status !== 200) {
-            status.innerHTML =
-                "No se pudieron cargar los archivos. " +
-                "Verificá que exista la carpeta Files.";
+            callback();
             return;
         }
 
-        let data;
+        var data;
 
         try {
             data = JSON.parse(xhr.responseText);
-        } catch (e) {
-            status.innerHTML = "Error leyendo los archivos.";
+        } catch(e) {
+            callback();
             return;
         }
 
-        allFiles = [];
+        for (var i = 0; i < data.length; i++) {
 
-        for (let i = 0; i < data.length; i++) {
+            var item = data[i];
 
-            let file = data[i];
-
-            if (file.type !== "file")
+            if (item.type !== "file")
                 continue;
 
-            allFiles.push({
-                name: file.name,
-                size: file.size,
-                download:
-                    "https://raw.githubusercontent.com/" +
-                    OWNER + "/" + REPO + "/" +
-                    BRANCH + "/" + FOLDER + "/" +
-                    encodeURIComponent(file.name)
-            });
+            var ext = getExtension(item.name);
+
+            if (
+                ext !== "png" &&
+                ext !== "jpg" &&
+                ext !== "jpeg" &&
+                ext !== "webp" &&
+                ext !== "gif"
+            ) {
+                continue;
+            }
+
+            var key = baseName(item.name).toLowerCase();
+
+            iconMap[key] = item.download_url;
         }
 
-        status.innerHTML =
-            allFiles.length +
-            " archivo(s) encontrados.";
-
-        renderFiles();
+        callback();
     };
 
     xhr.onerror = function() {
-        status.innerHTML =
-            "Error de conexión. Intentá actualizar.";
+        callback();
     };
 
     xhr.send();
 }
 
+/* ======================================
+   CARGAR FILES
+====================================== */
+
+function loadFiles() {
+
+    var status = document.getElementById("status");
+    var container = document.getElementById("files");
+
+    status.className = "status loading";
+    status.innerHTML = "⟳ Cargando archivos e ICONS...";
+    container.innerHTML = "";
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("GET", apiFolder(FILES_FOLDER), true);
+
+    xhr.onload = function() {
+
+        if (xhr.status !== 200) {
+
+            status.className = "status";
+
+            status.innerHTML =
+                "⚠ Error cargando Files. " +
+                "Comprobá que exista la carpeta.";
+
+            return;
+        }
+
+        var data;
+
+        try {
+            data = JSON.parse(xhr.responseText);
+        } catch(e) {
+
+            status.innerHTML =
+                "Error leyendo la respuesta de GitHub.";
+
+            return;
+        }
+
+        allFiles = [];
+
+        for (var i = 0; i < data.length; i++) {
+
+            var file = data[i];
+
+            if (file.type !== "file")
+                continue;
+
+            if (file.name === "README.txt")
+                continue;
+
+            allFiles.push({
+                name: file.name,
+                size: file.size,
+                download: file.download_url,
+                key: baseName(file.name).toLowerCase()
+            });
+        }
+
+        loadIcons(function() {
+
+            status.className = "status";
+
+            status.innerHTML =
+                "✓ " + allFiles.length +
+                " archivos cargados · ICONS sincronizados";
+
+            renderFiles();
+        });
+    };
+
+    xhr.onerror = function() {
+
+        status.className = "status";
+
+        status.innerHTML =
+            "⚠ No se pudo conectar con GitHub.";
+    };
+
+    xhr.send();
+}
+
+/* ======================================
+   MOSTRAR ARCHIVOS
+====================================== */
+
 function renderFiles() {
 
-    let container = document.getElementById("files");
-    let search = document.getElementById("search")
+    var container = document.getElementById("files");
+    var search = document.getElementById("search")
         .value.toLowerCase();
 
     container.innerHTML = "";
 
-    let count = 0;
+    var count = 0;
 
-    for (let i = 0; i < allFiles.length; i++) {
+    for (var i = 0; i < allFiles.length; i++) {
 
-        let file = allFiles[i];
-        let category = getCategory(file);
+        var file = allFiles[i];
+        var category = getCategory(file);
 
         if (
             currentCategory !== "all" &&
-            currentCategory !== category
+            category !== currentCategory
         ) {
             continue;
         }
@@ -366,31 +1074,70 @@ function renderFiles() {
 
         count++;
 
-        let card = document.createElement("div");
+        /* TARJETA */
+
+        var card = document.createElement("div");
         card.className = "card";
 
-        let icon = document.createElement("div");
-        icon.className = "file-icon";
-        icon.textContent = getIcon(file);
+        /* PORTADA */
 
-        let name = document.createElement("div");
+        var cover = document.createElement("div");
+        cover.className = "cover";
+
+        var iconURL = iconMap[file.key];
+
+        if (iconURL) {
+
+            var image = document.createElement("img");
+
+            image.src = iconURL;
+            image.alt = file.name;
+
+            image.onerror = function() {
+                this.style.display = "none";
+            };
+
+            cover.appendChild(image);
+
+        } else {
+
+            var fallback = document.createElement("div");
+            fallback.className = "cover-fallback";
+            fallback.textContent = getIcon(file);
+
+            cover.appendChild(fallback);
+        }
+
+        /* CATEGORÍA */
+
+        var tag = document.createElement("div");
+        tag.className = "tag";
+        tag.textContent = category.toUpperCase();
+
+        /* NOMBRE */
+
+        var name = document.createElement("div");
         name.className = "file-name";
         name.textContent = file.name;
 
-        let info = document.createElement("div");
-        info.className = "file-info";
-        info.textContent =
-            category.toUpperCase() +
-            " · " +
-            formatSize(file.size);
+        /* TAMAÑO */
 
-        let link = document.createElement("a");
+        var info = document.createElement("div");
+        info.className = "file-info";
+        info.textContent = formatSize(file.size);
+
+        /* DESCARGA */
+
+        var link = document.createElement("a");
         link.className = "download";
-        link.textContent = "DESCARGAR";
         link.href = file.download;
+        link.textContent = "⬇ DESCARGAR";
         link.setAttribute("download", file.name);
 
-        card.appendChild(icon);
+        /* ARMAR */
+
+        card.appendChild(cover);
+        card.appendChild(tag);
         card.appendChild(name);
         card.appendChild(info);
         card.appendChild(link);
@@ -398,22 +1145,39 @@ function renderFiles() {
         container.appendChild(card);
     }
 
+    /* VACÍO */
+
     if (count === 0) {
-        container.innerHTML =
-            '<div class="empty">No se encontraron archivos.</div>';
+
+        var empty = document.createElement("div");
+        empty.className = "empty";
+
+        empty.innerHTML =
+            "╳ NO SE ENCONTRARON ARCHIVOS ╳<br><br>" +
+            "Probá otra búsqueda o categoría.";
+
+        container.appendChild(empty);
     }
 }
 
+/* ======================================
+   BUSCADOR
+====================================== */
+
 document.getElementById("search")
-    .addEventListener("keyup", renderFiles);
+    .addEventListener("input", renderFiles);
 
-let buttons = document.getElementsByClassName("category");
+/* ======================================
+   CATEGORÍAS
+====================================== */
 
-for (let i = 0; i < buttons.length; i++) {
+var buttons = document.getElementsByClassName("category");
+
+for (var i = 0; i < buttons.length; i++) {
 
     buttons[i].onclick = function() {
 
-        for (let j = 0; j < buttons.length; j++) {
+        for (var j = 0; j < buttons.length; j++) {
             buttons[j].className = "category";
         }
 
@@ -425,6 +1189,10 @@ for (let i = 0; i < buttons.length; i++) {
         renderFiles();
     };
 }
+
+/* ======================================
+   INICIAR
+====================================== */
 
 loadFiles();
 
