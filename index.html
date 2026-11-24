@@ -4,560 +4,588 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080d18">
-<title>LUCXHUB | PS3 GAMING HUB</title>
+<meta name="theme-color" content="#160c2b">
+<title>LUCXHUB | PS3 GAMING</title>
 
 <style>
 :root {
-    --bg: #080d18;
-    --panel: #101a2b;
-    --panel2: #142239;
-    --line: #263c5c;
-    --cyan: #00d9ff;
-    --blue: #397cff;
-    --purple: #8957ff;
-    --white: #f4f8ff;
-    --muted: #8da2bf;
-    --green: #37e6a1;
+    --bg:#10091f;
+    --panel:#1b1030;
+    --panel2:#25143e;
+    --pink:#ff39a8;
+    --cyan:#00eaff;
+    --purple:#9c52ff;
+    --orange:#ff9a42;
+    --white:#fff5ff;
+    --muted:#c2a9d6;
+    --line:#603b83;
 }
 
 * {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
+    box-sizing:border-box;
 }
 
 body {
-    margin: 0;
-    min-height: 100vh;
+    margin:0;
+    min-height:100vh;
+    color:var(--white);
     background:
-        radial-gradient(ellipse at 50% -15%, rgba(0,217,255,.15), transparent 48%),
-        radial-gradient(ellipse at 100% 40%, rgba(137,87,255,.09), transparent 35%),
-        var(--bg);
-    color: var(--white);
-    font-family: Arial, Helvetica, sans-serif;
+        radial-gradient(ellipse at 50% 0%,#55235d 0%,transparent 48%),
+        linear-gradient(180deg,#170d2c,#10091f 55%,#080613);
+    font-family:Arial,Helvetica,sans-serif;
 }
 
-/* FONDO */
+/* DECORACION DE FONDO */
 
-.background-effects {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: -1;
+.background {
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.sun {
+    position:absolute;
+    width:330px;
+    height:330px;
+    border-radius:50%;
+    left:50%;
+    top:65px;
+    transform:translateX(-50%);
+    background:linear-gradient(
+        180deg,#ffe18b 0%,#ff9c79 30%,#ff39a8 75%
+    );
+    opacity:.12;
+    filter:blur(2px);
+}
+
+.grid-floor {
+    position:absolute;
+    width:160%;
+    height:350px;
+    left:-30%;
+    bottom:-150px;
+    background-image:
+        linear-gradient(rgba(255,57,168,.28) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(0,234,255,.25) 1px,transparent 1px);
+    background-size:45px 35px;
+    transform:perspective(220px) rotateX(55deg);
+    transform-origin:top;
+    opacity:.28;
 }
 
 .glow {
-    position: absolute;
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    filter: blur(100px);
-    opacity: .12;
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    filter:blur(100px);
+    opacity:.18;
 }
 
-.glow.one {
-    background: var(--cyan);
-    top: 10%;
-    left: -150px;
+.glow-pink {
+    background:var(--pink);
+    left:-150px;
+    top:30%;
 }
 
-.glow.two {
-    background: var(--purple);
-    right: -160px;
-    top: 50%;
+.glow-cyan {
+    background:var(--cyan);
+    right:-150px;
+    top:55%;
 }
 
 /* HEADER */
 
-.header {
-    position: relative;
-    overflow: hidden;
-    padding: 35px 15px 27px;
-    text-align: center;
-    border-bottom: 1px solid #25415d;
-    background: linear-gradient(
-        135deg,
-        rgba(10,28,48,.98),
-        rgba(19,23,51,.98),
-        rgba(20,34,62,.98)
+header {
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+    padding:40px 15px 30px;
+    background:
+        linear-gradient(180deg,rgba(32,13,55,.95),rgba(20,10,36,.88));
+    border-bottom:2px solid var(--pink);
+    box-shadow:0 5px 30px rgba(255,57,168,.16);
+}
+
+header:before {
+    content:"";
+    position:absolute;
+    height:2px;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:linear-gradient(
+        90deg,transparent,var(--pink),var(--cyan),transparent
     );
 }
 
-.header:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--cyan),
-        var(--purple),
-        transparent
-    );
+.logo {
+    font-size:48px;
+    font-weight:1000;
+    letter-spacing:7px;
+    color:white;
+    text-shadow:
+        0 0 8px var(--pink),
+        0 0 20px var(--pink),
+        3px 3px 0 #54226c;
 }
 
-.brand {
-    display: inline-block;
-    font-size: 43px;
-    font-weight: 900;
-    letter-spacing: 6px;
-    text-shadow: 0 0 18px rgba(0,217,255,.35);
+.logo span {
+    color:var(--cyan);
+    text-shadow:0 0 15px var(--cyan);
 }
 
-.brand span {
-    color: var(--cyan);
-}
-
-.header-subtitle {
-    margin-top: 8px;
-    color: #a8c4e7;
-    font-size: 11px;
-    letter-spacing: 4px;
-    font-weight: bold;
+.subtitle {
+    margin-top:10px;
+    color:#ffc2e8;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:4px;
 }
 
 .header-tag {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 7px 14px;
-    border: 1px solid #28658b;
-    border-radius: 30px;
-    background: rgba(0,217,255,.07);
-    color: var(--cyan);
-    font-size: 10px;
-    letter-spacing: 2px;
+    display:inline-block;
+    margin-top:17px;
+    padding:8px 16px;
+    border:1px solid var(--cyan);
+    border-radius:30px;
+    background:rgba(0,234,255,.07);
+    color:var(--cyan);
+    font-size:10px;
+    letter-spacing:2px;
 }
 
 /* CONTENEDOR */
 
 .container {
-    width: 94%;
-    max-width: 1250px;
-    margin: 25px auto;
+    width:94%;
+    max-width:1250px;
+    margin:25px auto;
 }
 
-/* PRESENTACION */
+/* HERO */
 
 .hero {
-    position: relative;
-    padding: 27px;
-    overflow: hidden;
-    border: 1px solid #28476a;
-    border-radius: 14px;
+    position:relative;
+    padding:30px;
+    overflow:hidden;
+    border:1px solid #874a9d;
+    border-radius:13px;
     background:
-        linear-gradient(110deg, rgba(19,39,65,.97), rgba(17,25,48,.97));
-    box-shadow: 0 8px 30px rgba(0,0,0,.22);
+        linear-gradient(110deg,rgba(61,23,75,.95),rgba(26,16,52,.96));
+    box-shadow:0 0 25px rgba(255,57,168,.10);
 }
 
 .hero:after {
-    content: "LX";
-    position: absolute;
-    right: 25px;
-    top: 5px;
-    font-size: 110px;
-    font-weight: 900;
-    color: rgba(0,217,255,.045);
-    pointer-events: none;
+    content:"L X";
+    position:absolute;
+    right:15px;
+    top:5px;
+    font-size:90px;
+    font-weight:1000;
+    color:rgba(255,255,255,.035);
 }
 
 .hero h1 {
-    position: relative;
-    margin: 0 0 10px;
-    font-size: 25px;
-    z-index: 1;
+    position:relative;
+    margin:0 0 12px;
+    font-size:27px;
+    z-index:1;
 }
 
 .hero h1 span {
-    color: var(--cyan);
+    color:var(--pink);
+    text-shadow:0 0 15px var(--pink);
 }
 
 .hero p {
-    position: relative;
-    max-width: 650px;
-    margin: 0;
-    color: #a5b9d2;
-    font-size: 14px;
-    line-height: 1.6;
-    z-index: 1;
+    position:relative;
+    max-width:650px;
+    margin:0;
+    color:#e1c7ed;
+    font-size:14px;
+    line-height:1.7;
+    z-index:1;
 }
 
 .hero-label {
-    display: inline-block;
-    margin-top: 17px;
-    color: var(--green);
-    font-size: 10px;
-    font-weight: bold;
-    letter-spacing: 2px;
+    display:inline-block;
+    margin-top:17px;
+    color:var(--cyan);
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:bold;
 }
 
-/* ESTADISTICAS */
+/* STATS */
 
 .stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin: 18px 0;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin:18px 0;
 }
 
 .stat {
-    padding: 17px;
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 11px;
-    text-align: center;
+    padding:18px 10px;
+    text-align:center;
+    border:1px solid #603b83;
+    border-radius:11px;
+    background:linear-gradient(145deg,#291541,#180f2d);
 }
 
 .stat-number {
-    color: var(--cyan);
-    font-size: 25px;
-    font-weight: 900;
+    color:var(--cyan);
+    font-size:26px;
+    font-weight:900;
+    text-shadow:0 0 12px rgba(0,234,255,.4);
 }
 
 .stat-label {
-    margin-top: 5px;
-    color: var(--muted);
-    font-size: 10px;
-    letter-spacing: 1px;
+    margin-top:5px;
+    color:#d3b7e7;
+    font-size:10px;
+    letter-spacing:1px;
 }
 
-/* CATALOGO */
+/* PANEL */
 
 .catalog-panel {
-    padding: 18px;
-    background: rgba(16,26,43,.96);
-    border: 1px solid var(--line);
-    border-radius: 13px;
-    margin-top: 20px;
+    padding:19px;
+    background:rgba(27,16,48,.96);
+    border:1px solid #603b83;
+    border-radius:13px;
+    box-shadow:0 0 20px rgba(156,82,255,.08);
 }
 
-.section-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 16px;
+.heading {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:16px;
 }
 
-.section-heading h2 {
-    margin: 0;
-    font-size: 19px;
+.heading h2 {
+    margin:0;
+    font-size:19px;
 }
 
-.section-heading h2 span {
-    color: var(--cyan);
+.heading h2 span {
+    color:var(--pink);
 }
 
-.catalog-label {
-    color: var(--muted);
-    font-size: 10px;
-    letter-spacing: 1px;
+.heading small {
+    color:#bda1d6;
+    font-size:10px;
+    letter-spacing:2px;
 }
 
 /* BUSCADOR */
 
 .search-row {
-    display: flex;
-    gap: 9px;
+    display:flex;
+    gap:9px;
 }
 
 .search {
-    flex: 1;
-    min-width: 0;
-    padding: 14px;
-    background: #080f1c;
-    border: 1px solid #304b6b;
-    border-radius: 8px;
-    outline: none;
-    color: white;
-    font-size: 15px;
+    flex:1;
+    min-width:0;
+    padding:14px;
+    background:#110b20;
+    border:1px solid #704b91;
+    border-radius:8px;
+    outline:none;
+    color:white;
+    font-size:15px;
 }
 
 .search:focus {
-    border-color: var(--cyan);
-    box-shadow: 0 0 12px rgba(0,217,255,.12);
+    border-color:var(--cyan);
+    box-shadow:0 0 12px rgba(0,234,255,.15);
 }
 
 .refresh {
-    padding: 0 16px;
-    background: #183657;
-    color: var(--cyan);
-    border: 1px solid #28709b;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.refresh:hover {
-    background: #20517c;
+    padding:0 16px;
+    background:linear-gradient(110deg,#9b328b,#5736a3);
+    color:white;
+    border:1px solid var(--pink);
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 /* FILTROS */
 
 .filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 13px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:13px;
 }
 
 .filter {
-    padding: 10px 16px;
-    border: 1px solid #304763;
-    background: #111d30;
-    color: #b7c8dd;
-    border-radius: 7px;
-    font-size: 11px;
-    font-weight: bold;
-    cursor: pointer;
+    padding:10px 16px;
+    background:#241438;
+    border:1px solid #69458b;
+    border-radius:7px;
+    color:#e7d4f2;
+    font-size:11px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 .filter.active {
-    background: linear-gradient(100deg, #087baf, #4657c7);
-    color: white;
-    border-color: var(--cyan);
-}
-
-.filter:hover {
-    border-color: var(--cyan);
+    background:linear-gradient(100deg,#d72c91,#7434bb);
+    color:white;
+    border-color:#ff85ce;
+    box-shadow:0 0 12px rgba(255,57,168,.22);
 }
 
 /* ESTADO */
 
 .status {
-    margin-top: 15px;
-    min-height: 18px;
-    color: var(--cyan);
-    font-size: 12px;
+    margin-top:15px;
+    min-height:18px;
+    color:var(--cyan);
+    font-size:12px;
 }
 
 .status.error {
-    color: #ff7777;
+    color:#ff7777;
+}
+
+/* CATALOGO */
+
+.catalog-title {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:30px 0 17px;
+    font-size:18px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.catalog-title:before {
+    content:"";
+    width:4px;
+    height:23px;
+    border-radius:4px;
+    background:var(--pink);
+    box-shadow:0 0 10px var(--pink);
+}
+
+.grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(205px,1fr));
+    gap:16px;
 }
 
 /* TARJETAS */
 
-.catalog-title {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 28px 0 16px;
-    font-size: 17px;
-    font-weight: 900;
-}
-
-.catalog-title:before {
-    content: "";
-    width: 4px;
-    height: 21px;
-    background: var(--cyan);
-    border-radius: 5px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
-    gap: 16px;
-}
-
 .card {
-    min-width: 0;
-    overflow: hidden;
-    background: linear-gradient(145deg, #14243a, #0d1728);
-    border: 1px solid #263e5c;
-    border-radius: 12px;
-    transition: border-color .2s, box-shadow .2s;
+    min-width:0;
+    overflow:hidden;
+    background:linear-gradient(145deg,#29183e,#150e28);
+    border:1px solid #63427e;
+    border-radius:12px;
+    transition:border-color .2s,box-shadow .2s;
 }
 
 .card:hover {
-    border-color: var(--cyan);
-    box-shadow: 0 0 17px rgba(0,217,255,.13);
+    border-color:var(--cyan);
+    box-shadow:
+        0 0 17px rgba(0,234,255,.13),
+        0 0 20px rgba(255,57,168,.08);
 }
 
 .cover {
-    display: block;
-    width: 100%;
-    height: 155px;
-    padding: 9px;
-    object-fit: contain;
+    display:block;
+    width:100%;
+    height:155px;
+    padding:9px;
+    object-fit:contain;
     background:
-        radial-gradient(circle, #1b3551, #0a1422);
+        radial-gradient(circle,#422354,#170d28);
 }
 
 .no-cover {
-    display: flex;
-    width: 100%;
-    height: 155px;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #18324f, #11172d);
-    color: var(--cyan);
-    font-size: 46px;
-    font-weight: bold;
+    display:flex;
+    width:100%;
+    height:155px;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#57275c,#211238);
+    color:var(--cyan);
+    font-size:46px;
+    font-weight:1000;
+    text-shadow:0 0 15px var(--cyan);
 }
 
 .card-content {
-    padding: 14px;
+    padding:14px;
 }
 
 .card-name {
-    min-height: 38px;
-    font-size: 15px;
-    font-weight: bold;
-    overflow-wrap: anywhere;
+    min-height:38px;
+    font-size:15px;
+    font-weight:bold;
+    overflow-wrap:anywhere;
 }
 
 .card-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin: 11px 0;
-    color: var(--muted);
-    font-size: 10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:5px;
+    margin:11px 0;
+    color:#c6aed8;
+    font-size:10px;
 }
 
 .category {
-    display: inline-block;
-    padding: 5px 8px;
-    border-radius: 5px;
-    background: #203b59;
-    color: #8eeaff;
-    font-weight: bold;
+    display:inline-block;
+    padding:5px 8px;
+    border-radius:5px;
+    background:#462452;
+    color:#ffc1e8;
+    font-weight:bold;
+    border:1px solid #83447f;
 }
 
 .external-tag {
-    color: #b99cff;
+    color:var(--cyan);
 }
 
 .download {
-    display: block;
-    width: 100%;
-    padding: 12px 6px;
-    border-radius: 7px;
-    background: linear-gradient(100deg, #087eac, #4b55bd);
-    border: 1px solid #3986d0;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: .5px;
+    display:block;
+    width:100%;
+    padding:12px 6px;
+    border-radius:7px;
+    background:linear-gradient(100deg,#d82b91,#8138ba);
+    border:1px solid #ff70c3;
+    color:white;
+    text-decoration:none;
+    text-align:center;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:.5px;
 }
 
 .download.external {
-    background: linear-gradient(100deg, #6439b8, #354dba);
-    border-color: #9271e8;
+    background:linear-gradient(100deg,#6540b8,#354da8);
+    border-color:#a88bff;
 }
 
 .download:hover {
-    filter: brightness(1.25);
+    filter:brightness(1.25);
 }
 
 /* SIN RESULTADOS */
 
 .empty {
-    grid-column: 1 / -1;
-    padding: 45px 10px;
-    border: 1px dashed #344b68;
-    border-radius: 10px;
-    text-align: center;
-    color: var(--muted);
+    grid-column:1/-1;
+    padding:45px 10px;
+    border:1px dashed #704b91;
+    border-radius:10px;
+    text-align:center;
+    color:#c2a9d6;
 }
 
 /* FOOTER */
 
 .footer {
-    margin-top: 45px;
-    padding: 25px 10px;
-    text-align: center;
-    border-top: 1px solid #1b3049;
-    background: #090f1c;
+    position:relative;
+    margin-top:45px;
+    padding:30px 10px;
+    text-align:center;
+    border-top:1px solid #603b83;
+    background:rgba(14,8,27,.95);
 }
 
 .footer-logo {
-    font-size: 19px;
-    font-weight: 900;
-    letter-spacing: 4px;
+    font-size:23px;
+    font-weight:1000;
+    letter-spacing:5px;
+    text-shadow:0 0 12px var(--pink);
 }
 
 .footer-logo span {
-    color: var(--cyan);
+    color:var(--cyan);
 }
 
 .footer-text {
-    margin-top: 9px;
-    color: #6f839e;
-    font-size: 10px;
-    letter-spacing: 1px;
+    margin-top:9px;
+    color:#b99bcf;
+    font-size:10px;
+    letter-spacing:2px;
 }
 
-@media(max-width: 550px) {
-    .brand {
-        font-size: 32px;
+/* RESPONSIVE */
+
+@media(max-width:550px) {
+    .logo {
+        font-size:34px;
+        letter-spacing:4px;
     }
 
-    .header-subtitle {
-        font-size: 9px;
-        letter-spacing: 2px;
+    .subtitle {
+        font-size:9px;
+        letter-spacing:2px;
     }
 
     .hero {
-        padding: 21px;
+        padding:22px;
     }
 
     .hero h1 {
-        font-size: 21px;
+        font-size:21px;
     }
 
     .stats {
-        gap: 7px;
+        gap:7px;
     }
 
     .stat {
-        padding: 12px 5px;
+        padding:13px 5px;
     }
 
     .stat-number {
-        font-size: 20px;
+        font-size:21px;
     }
 
     .stat-label {
-        font-size: 8px;
+        font-size:8px;
     }
 
     .grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 9px;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:9px;
     }
 
-    .cover,
-    .no-cover {
-        height: 120px;
+    .cover,.no-cover {
+        height:120px;
     }
 
     .card-content {
-        padding: 10px;
+        padding:10px;
     }
 
     .card-name {
-        font-size: 13px;
+        font-size:13px;
     }
 
     .search-row {
-        flex-wrap: wrap;
+        flex-wrap:wrap;
     }
 
     .refresh {
-        min-height: 43px;
+        min-height:43px;
     }
 }
 </style>
@@ -565,63 +593,52 @@ body {
 
 <body>
 
-<div class="background-effects">
-    <div class="glow one"></div>
-    <div class="glow two"></div>
+<div class="background">
+    <div class="sun"></div>
+    <div class="glow glow-pink"></div>
+    <div class="glow glow-cyan"></div>
+    <div class="grid-floor"></div>
 </div>
 
-<!-- HEADER -->
-
-<header class="header">
-    <div class="brand">LUCX<span>HUB</span></div>
-    <div class="header-subtitle">
-        PLAYSTATION 3 GAMING PLATFORM
-    </div>
-    <div class="header-tag">SYSTEM ONLINE • PS3</div>
+<header>
+    <div class="logo">LUCX<span>HUB</span></div>
+    <div class="subtitle">PLAYSTATION 3 GAMING PLATFORM</div>
+    <div class="header-tag">✦ GAMING LIBRARY ONLINE ✦</div>
 </header>
 
 <main class="container">
 
-    <!-- PRESENTACION -->
-
     <section class="hero">
         <h1>BIENVENIDO A <span>LUCXHUB</span></h1>
         <p>
-            Tu centro de descargas para PlayStation 3.
-            Explorá juegos, aplicaciones, herramientas y contenido
+            Tu centro de contenido para PlayStation 3.
+            Explorá juegos, aplicaciones, herramientas y archivos
             desde una biblioteca organizada en un solo lugar.
         </p>
         <div class="hero-label">
-            ◆ GAMING • SOFTWARE • DOWNLOADS
+            ◆ GAMES • APPS • TOOLS • DOWNLOADS
         </div>
     </section>
-
-    <!-- ESTADISTICAS -->
 
     <section class="stats">
         <div class="stat">
             <div class="stat-number" id="totalCount">0</div>
             <div class="stat-label">ARCHIVOS</div>
         </div>
-
         <div class="stat">
             <div class="stat-number" id="githubCount">0</div>
             <div class="stat-label">GITHUB</div>
         </div>
-
         <div class="stat">
             <div class="stat-number" id="mediafireCount">0</div>
             <div class="stat-label">MEDIAFIRE</div>
         </div>
     </section>
 
-    <!-- CATALOGO -->
-
     <section class="catalog-panel">
-
-        <div class="section-heading">
-            <h2><span>▰</span> EXPLORAR CATÁLOGO</h2>
-            <div class="catalog-label">LUCXHUB LIBRARY</div>
+        <div class="heading">
+            <h2><span>✦</span> EXPLORAR CATÁLOGO</h2>
+            <small>LUCXHUB LIBRARY</small>
         </div>
 
         <div class="search-row">
@@ -629,9 +646,8 @@ body {
                 id="search"
                 class="search"
                 type="text"
-                placeholder="Buscar contenido..."
+                placeholder="Buscar juegos, aplicaciones y más..."
             >
-
             <button class="refresh" id="refreshButton">
                 ↻ ACTUALIZAR
             </button>
@@ -648,7 +664,6 @@ body {
         <div class="status" id="status">
             Conectando con LUCXHUB...
         </div>
-
     </section>
 
     <div class="catalog-title">BIBLIOTECA DISPONIBLE</div>
@@ -665,15 +680,12 @@ body {
         PLAYSTATION 3 • GAMING PLATFORM • 2026
     </div>
     <div class="footer-text">
-        DESIGNED FOR THE GAMING COMMUNITY
+        BUILT FOR THE GAMING COMMUNITY
     </div>
 </footer>
 
 <script>
-
-/* ======================================
-   CONFIGURACION PRINCIPAL
-====================================== */
+/* CONFIGURACION */
 
 var OWNER = "lucasameri2508-byte";
 var REPO = "LUCXHUB";
@@ -689,9 +701,7 @@ var iconMap = {};
 var currentFilter = "all";
 var currentSearch = "";
 
-/* ======================================
-   API GITHUB
-====================================== */
+/* GITHUB API */
 
 function apiFolder(folder) {
     return "https://api.github.com/repos/" +
@@ -700,9 +710,7 @@ function apiFolder(folder) {
         "?ref=" + BRANCH;
 }
 
-/* ======================================
-   FUNCIONES
-====================================== */
+/* FUNCIONES */
 
 function baseName(filename) {
     return filename.replace(/\.[^/.]+$/, "");
@@ -721,32 +729,29 @@ function getCategory(filename) {
 function formatSize(bytes) {
     if (!bytes || bytes <= 0) return "Desconocido";
 
-    var units = ["B", "KB", "MB", "GB"];
+    var units = ["B","KB","MB","GB"];
     var i = 0;
 
     while (bytes >= 1024 && i < 3) {
-        bytes = bytes / 1024;
+        bytes /= 1024;
         i++;
     }
 
     return bytes.toFixed(2) + " " + units[i];
 }
 
-function showStatus(message, error) {
+function showStatus(message,error) {
     var status = document.getElementById("status");
-
     status.textContent = message;
     status.className = error ? "status error" : "status";
 }
 
-/* ======================================
-   CARGAR ARCHIVOS NORMALES
-====================================== */
+/* ARCHIVOS NORMALES */
 
 function loadFiles(callback) {
     var xhr = new XMLHttpRequest();
 
-    xhr.open("GET", apiFolder(FILES_FOLDER), true);
+    xhr.open("GET",apiFolder(FILES_FOLDER),true);
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState !== 4) return;
@@ -759,23 +764,18 @@ function loadFiles(callback) {
                     if (file.type !== "file") return;
 
                     allFiles.push({
-                        name: file.name,
-                        displayName: baseName(file.name),
-                        size: file.size,
-                        sizeLabel: null,
-                        download: file.download_url,
-                        key: baseName(file.name).toLowerCase(),
-                        external: false,
-                        category: getCategory(file.name)
+                        name:file.name,
+                        displayName:baseName(file.name),
+                        size:file.size,
+                        download:file.download_url,
+                        key:baseName(file.name).toLowerCase(),
+                        external:false,
+                        category:getCategory(file.name)
                     });
                 });
-
             } catch(e) {
-                console.log("Error Files:", e);
+                console.log("Error Files:",e);
             }
-
-        } else {
-            console.log("No se pudo acceder a Files.");
         }
 
         callback(xhr.status === 200);
@@ -788,14 +788,12 @@ function loadFiles(callback) {
     xhr.send();
 }
 
-/* ======================================
-   CARGAR LINKS TXT
-====================================== */
+/* ENLACES TXT */
 
 function loadLinks(callback) {
     var xhr = new XMLHttpRequest();
 
-    xhr.open("GET", apiFolder(LINKS_FOLDER), true);
+    xhr.open("GET",apiFolder(LINKS_FOLDER),true);
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState !== 4) return;
@@ -837,7 +835,7 @@ function loadLinks(callback) {
         txtFiles.forEach(function(file) {
             var txt = new XMLHttpRequest();
 
-            txt.open("GET", file.download_url, true);
+            txt.open("GET",file.download_url,true);
 
             txt.onreadystatechange = function() {
                 if (txt.readyState !== 4) return;
@@ -846,22 +844,21 @@ function loadLinks(callback) {
                     var link = txt.responseText.trim();
 
                     if (/^https?:\/\/\S+$/i.test(link)) {
-                        var filename = file.name.replace(/\.txt$/i, "");
+                        var filename = file.name.replace(/\.txt$/i,"");
 
                         var displayName = filename.replace(
-                            /\.(pkg|zip|rap)$/i,
-                            ""
+                            /\.(pkg|zip|rap)$/i,""
                         );
 
                         allFiles.push({
-                            name: filename,
-                            displayName: displayName,
-                            size: 0,
-                            sizeLabel: "ENLACE EXTERNO",
-                            download: link,
-                            key: displayName.toLowerCase(),
-                            external: true,
-                            category: getCategory(filename)
+                            name:filename,
+                            displayName:displayName,
+                            size:0,
+                            sizeLabel:"ENLACE EXTERNO",
+                            download:link,
+                            key:displayName.toLowerCase(),
+                            external:true,
+                            category:getCategory(filename)
                         });
                     }
                 }
@@ -870,7 +867,6 @@ function loadLinks(callback) {
             };
 
             txt.onerror = finish;
-
             txt.send();
         });
     };
@@ -882,14 +878,12 @@ function loadLinks(callback) {
     xhr.send();
 }
 
-/* ======================================
-   CARGAR ICONOS
-====================================== */
+/* ICONOS */
 
 function loadIcons(callback) {
     var xhr = new XMLHttpRequest();
 
-    xhr.open("GET", apiFolder(ICONS_FOLDER), true);
+    xhr.open("GET",apiFolder(ICONS_FOLDER),true);
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState !== 4) return;
@@ -906,12 +900,10 @@ function loadIcons(callback) {
                     }
 
                     var key = baseName(icon.name).toLowerCase();
-
                     iconMap[key] = icon.download_url;
                 });
-
             } catch(e) {
-                console.log("Error ICONS:", e);
+                console.log("Error ICONS:",e);
             }
 
             callback(true);
@@ -928,12 +920,9 @@ function loadIcons(callback) {
     xhr.send();
 }
 
-/* ======================================
-   ESTADISTICAS
-====================================== */
+/* ESTADISTICAS */
 
 function updateStats() {
-    var total = allFiles.length;
     var github = 0;
     var mediafire = 0;
 
@@ -945,18 +934,20 @@ function updateStats() {
         }
     });
 
-    document.getElementById("totalCount").textContent = total;
-    document.getElementById("githubCount").textContent = github;
-    document.getElementById("mediafireCount").textContent = mediafire;
+    document.getElementById("totalCount").textContent =
+        allFiles.length;
+
+    document.getElementById("githubCount").textContent =
+        github;
+
+    document.getElementById("mediafireCount").textContent =
+        mediafire;
 }
 
-/* ======================================
-   DIBUJAR CATALOGO
-====================================== */
+/* CATALOGO */
 
 function renderFiles() {
     var grid = document.getElementById("grid");
-
     grid.innerHTML = "";
 
     var filtered = allFiles.filter(function(file) {
@@ -992,7 +983,6 @@ function renderFiles() {
 
         if (iconUrl) {
             var image = document.createElement("img");
-
             image.className = "cover";
             image.src = iconUrl;
             image.alt = file.displayName;
@@ -1001,18 +991,15 @@ function renderFiles() {
                 var fallback = document.createElement("div");
                 fallback.className = "no-cover";
                 fallback.textContent = "LX";
-                image.parentNode.replaceChild(fallback, image);
+                image.parentNode.replaceChild(fallback,image);
             };
 
             card.appendChild(image);
-
         } else {
-            var noCover = document.createElement("div");
-
-            noCover.className = "no-cover";
-            noCover.textContent = "LX";
-
-            card.appendChild(noCover);
+            var fallback = document.createElement("div");
+            fallback.className = "no-cover";
+            fallback.textContent = "LX";
+            card.appendChild(fallback);
         }
 
         var content = document.createElement("div");
@@ -1040,7 +1027,6 @@ function renderFiles() {
 
         var button = document.createElement("a");
         button.className = "download";
-
         button.href = file.download;
 
         if (file.external) {
@@ -1050,7 +1036,7 @@ function renderFiles() {
             button.rel = "noopener noreferrer";
         } else {
             button.textContent = "↓ DESCARGAR";
-            button.setAttribute("download", file.name);
+            button.setAttribute("download",file.name);
         }
 
         meta.appendChild(category);
@@ -1061,23 +1047,18 @@ function renderFiles() {
         content.appendChild(button);
 
         card.appendChild(content);
-
         grid.appendChild(card);
     });
 }
 
-/* ======================================
-   BUSCADOR
-====================================== */
+/* BUSCADOR */
 
 document.getElementById("search").oninput = function() {
     currentSearch = this.value.toLowerCase();
     renderFiles();
 };
 
-/* ======================================
-   FILTROS
-====================================== */
+/* FILTROS */
 
 var filterButtons = document.querySelectorAll(".filter");
 
@@ -1090,68 +1071,50 @@ for (var i = 0; i < filterButtons.length; i++) {
         }
 
         this.className = "filter active";
-
         renderFiles();
     };
 }
 
-/* ======================================
-   ACTUALIZAR CATALOGO
-====================================== */
+/* ACTUALIZAR */
 
 function startStore() {
     allFiles = [];
     iconMap = {};
 
-    showStatus("CONECTANDO CON GITHUB...");
+    showStatus("CARGANDO BIBLIOTECA...");
 
     document.getElementById("grid").innerHTML =
-        '<div class="empty">ACTUALIZANDO BIBLIOTECA...</div>';
+        '<div class="empty">CONECTANDO CON GITHUB...</div>';
 
     loadFiles(function(filesOK) {
-
         loadLinks(function(linksOK) {
-
             loadIcons(function(iconsOK) {
-
                 updateStats();
                 renderFiles();
 
                 if (!filesOK && !linksOK) {
                     showStatus(
-                        "ERROR: No se pudo conectar con GitHub.",
+                        "ERROR: NO SE PUDO CONECTAR CON GITHUB",
                         true
                     );
                 } else {
-                    var message =
-                        "✓ " + allFiles.length +
-                        " ELEMENTOS CARGADOS";
-
-                    if (!iconsOK) {
-                        message += " · ICONOS NO DISPONIBLES";
-                    }
-
-                    showStatus(message, false);
+                    showStatus(
+                        "✦ " + allFiles.length +
+                        " ELEMENTOS CARGADOS",
+                        false
+                    );
                 }
-
             });
-
         });
-
     });
 }
 
-document.getElementById("refreshButton").onclick = function() {
-    startStore();
-};
+document.getElementById("refreshButton").onclick = startStore;
 
-/* ======================================
-   INICIAR
-====================================== */
+/* INICIAR */
 
 startStore();
 
 </script>
-
 </body>
 </html>
