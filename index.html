@@ -4,673 +4,214 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#10051c">
-<title>LUCXHUB | PS3 STORE</title>
+<meta name="theme-color" content="#101020">
+<title>LUCXHUB | PS3</title>
 
 <style>
 * {
     box-sizing: border-box;
 }
 
-:root {
-    --pink: #ff00b8;
-    --cyan: #00eaff;
-    --purple: #8d31ff;
-    --blue: #1768ff;
-    --orange: #ffae00;
-    --dark: #10051c;
-}
-
 body {
     margin: 0;
+    background:
+        radial-gradient(ellipse at top, #29204d 0%, #101020 55%, #080812 100%);
     color: white;
-    background:
-        radial-gradient(ellipse at 50% 0%, #7521a9 0%, transparent 45%),
-        radial-gradient(ellipse at 5% 40%, #082e63 0%, transparent 40%),
-        radial-gradient(ellipse at 95% 70%, #65003f 0%, transparent 40%),
-        #080514;
-    background-attachment: fixed;
     font-family: Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
+    min-height: 100vh;
 }
-
-/* =================================
-   GRAFFITIS DE FONDO
-================================= */
-
-.wall-graffiti {
-    position: fixed;
-    z-index: 0;
-    pointer-events: none;
-    user-select: none;
-    white-space: nowrap;
-    font-weight: 1000;
-    font-style: italic;
-    line-height: .85;
-    opacity: .22;
-    -webkit-text-stroke: 2px #080514;
-    filter: drop-shadow(5px 5px 0 #000);
-}
-
-.graffiti-a {
-    top: 17%;
-    left: -65px;
-    font-size: 100px;
-    color: var(--pink);
-    transform: rotate(-22deg);
-    text-shadow: 5px 5px #7300ff;
-    animation: graffitiFloat 6s infinite ease-in-out;
-}
-
-.graffiti-b {
-    top: 43%;
-    right: -65px;
-    font-size: 115px;
-    color: var(--cyan);
-    transform: rotate(17deg);
-    text-shadow: 6px 6px var(--pink);
-    animation: graffitiFloat 5s infinite ease-in-out reverse;
-}
-
-.graffiti-c {
-    bottom: 15%;
-    left: -35px;
-    font-size: 120px;
-    color: #a34aff;
-    transform: rotate(-14deg);
-    text-shadow: 6px 6px var(--pink);
-}
-
-.graffiti-d {
-    top: 75%;
-    right: -85px;
-    font-size: 85px;
-    color: var(--orange);
-    transform: rotate(-12deg);
-    text-shadow: 5px 5px var(--pink);
-}
-
-.graffiti-e {
-    top: 7%;
-    right: 5%;
-    font-size: 45px;
-    color: var(--cyan);
-    transform: rotate(12deg);
-    text-shadow: 4px 4px var(--purple);
-}
-
-/* PINTURA */
-
-.paint-splash {
-    position: fixed;
-    z-index: 0;
-    pointer-events: none;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    opacity: .18;
-    filter: blur(2px);
-}
-
-.splash-one {
-    top: 25%;
-    left: 3%;
-    background:
-        radial-gradient(circle, #ff00b8 0 15%, transparent 17%),
-        radial-gradient(circle at 20% 30%, #ff00b8 0 5%, transparent 7%),
-        radial-gradient(circle at 80% 20%, #ff00b8 0 7%, transparent 9%),
-        radial-gradient(circle at 30% 80%, #ff00b8 0 6%, transparent 8%);
-}
-
-.splash-two {
-    top: 55%;
-    right: 3%;
-    background:
-        radial-gradient(circle, #00eaff 0 15%, transparent 17%),
-        radial-gradient(circle at 20% 30%, #00eaff 0 6%, transparent 8%),
-        radial-gradient(circle at 80% 70%, #00eaff 0 8%, transparent 10%);
-}
-
-.splash-three {
-    bottom: 5%;
-    left: 40%;
-    background:
-        radial-gradient(circle, #8d31ff 0 15%, transparent 17%),
-        radial-gradient(circle at 20% 30%, #8d31ff 0 7%, transparent 9%),
-        radial-gradient(circle at 80% 20%, #8d31ff 0 5%, transparent 7%);
-}
-
-/* ESTRELLAS DECORATIVAS */
-
-.decor-star {
-    position: fixed;
-    z-index: 0;
-    pointer-events: none;
-    font-size: 55px;
-    opacity: .3;
-    animation: float 4s infinite ease-in-out;
-}
-
-.star-one {
-    top: 32%;
-    left: 4%;
-    color: var(--cyan);
-}
-
-.star-two {
-    top: 68%;
-    right: 5%;
-    color: var(--pink);
-}
-
-/* =================================
-   HEADER
-================================= */
 
 header {
-    position: relative;
-    z-index: 1;
     text-align: center;
-    padding: 55px 15px 35px;
-    overflow: hidden;
-    border-bottom: 3px solid var(--pink);
-    background:
-        linear-gradient(
-            100deg,
-            rgba(8,3,20,.85),
-            rgba(65,0,90,.5),
-            rgba(8,3,20,.85)
-        );
-    box-shadow: 0 8px 30px #ff00b833;
-}
-
-header:before {
-    content: "★";
-    position: absolute;
-    left: 6%;
-    top: 15px;
-    font-size: 65px;
-    color: var(--cyan);
-    text-shadow: 0 0 20px var(--cyan);
-    animation: starSpin 12s linear infinite;
-}
-
-header:after {
-    content: "✦";
-    position: absolute;
-    right: 7%;
-    bottom: 10px;
-    font-size: 65px;
-    color: var(--pink);
-    text-shadow: 0 0 20px var(--pink);
-    animation: float 3s infinite ease-in-out;
+    padding: 35px 15px 25px;
+    background: linear-gradient(135deg, #ff3195, #813bdb, #00d9ff);
+    border-bottom: 4px solid #ff70c0;
 }
 
 .logo {
-    position: relative;
-    z-index: 1;
-    font-size: clamp(40px, 8vw, 85px);
-    font-weight: 1000;
-    font-style: italic;
-    letter-spacing: -4px;
-    color: white;
-    -webkit-text-stroke: 1px white;
-    text-shadow:
-        4px 4px var(--pink),
-        8px 8px #5700ff,
-        0 0 25px var(--pink);
-    animation: logoGlow 2s alternate infinite;
-}
-
-.logo span {
-    color: var(--cyan);
-    text-shadow:
-        3px 3px #004bff,
-        0 0 25px var(--cyan);
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    text-shadow: 3px 3px #17112c;
 }
 
 .subtitle {
-    font-weight: bold;
-    letter-spacing: 4px;
-    color: #ff70e5;
-    margin-top: 15px;
-    text-shadow: 0 0 12px var(--pink);
-}
-
-.paint-text {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 22px;
-    background: var(--pink);
-    color: white;
+    margin-top: 8px;
     font-size: 13px;
-    font-weight: 900;
-    transform: rotate(-2deg);
-    box-shadow: 5px 5px 0 #4500ff;
+    letter-spacing: 3px;
+    font-weight: bold;
 }
-
-/* =================================
-   CONTENIDO
-================================= */
 
 .container {
     width: 94%;
-    max-width: 1250px;
-    margin: 28px auto;
-    position: relative;
-    z-index: 1;
+    max-width: 1200px;
+    margin: 25px auto;
 }
 
 .panel {
-    background: rgba(9,5,25,.96);
-    border: 2px solid #7a24ff;
-    border-radius: 14px;
-    padding: 18px;
-    box-shadow:
-        0 0 20px #7a24ff33,
-        0 0 35px #ff00b811;
-}
-
-/* BUSCADOR */
-
-.search-row {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+    background: rgba(25, 25, 48, 0.95);
+    border: 1px solid #563d85;
+    border-radius: 12px;
+    padding: 17px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 18px rgba(140, 60, 255, 0.15);
 }
 
 .search {
-    flex: 1;
-    min-width: 180px;
-    padding: 15px;
-    border-radius: 9px;
-    border: 2px solid #7429d9;
-    background: #070414;
+    width: 100%;
+    padding: 14px;
+    background: #111122;
     color: white;
+    border: 2px solid #7044b8;
+    border-radius: 8px;
     font-size: 16px;
     outline: none;
 }
 
 .search:focus {
-    border-color: var(--cyan);
-    box-shadow: 0 0 15px #00eaff55;
+    border-color: #00d9ff;
 }
 
-.refresh {
-    border: 2px solid var(--cyan);
-    background: #06172c;
-    color: var(--cyan);
-    border-radius: 9px;
-    padding: 12px 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: .25s;
-}
-
-.refresh:hover {
-    color: #000;
-    background: var(--cyan);
-    box-shadow: 0 0 20px var(--cyan);
-    transform: scale(1.03);
-}
-
-/* CATEGORÍAS */
-
-.categories {
+.filters {
     display: flex;
-    gap: 9px;
     flex-wrap: wrap;
-    margin-top: 18px;
+    gap: 9px;
+    margin-top: 14px;
 }
 
-.category {
-    flex: 1;
-    min-width: 85px;
-    padding: 12px;
+.filter {
+    padding: 10px 17px;
+    background: #29213e;
     color: white;
-    background: #170b32;
-    border: 1px solid #7030b9;
-    border-radius: 8px;
-    font-weight: bold;
+    border: 1px solid #7146a9;
+    border-radius: 7px;
     cursor: pointer;
-    transition: .25s;
+    font-weight: bold;
 }
 
-.category:hover {
-    border-color: var(--cyan);
-    color: var(--cyan);
-    transform: translateY(-3px);
+.filter.active,
+.filter:hover {
+    background: #ed3297;
+    border-color: #ff8bc9;
 }
-
-.category.active {
-    color: white;
-    border-color: #ff6de9;
-    background: linear-gradient(90deg,#9000ff,#ff00b8);
-    box-shadow: 0 0 15px #ff00b855;
-}
-
-/* =================================
-   MENSAJE DE ESTADO
-================================= */
 
 .status {
-    padding: 13px;
-    margin: 18px 0;
-    color: var(--cyan);
-    background: rgba(7,12,28,.96);
-    border-left: 4px solid var(--cyan);
-    border-radius: 5px;
-    font-weight: bold;
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity .8s ease, transform .8s ease;
+    text-align: center;
+    color: #00eaff;
+    font-size: 13px;
+    margin-top: 15px;
+    min-height: 18px;
 }
 
-.status.loading {
-    animation: pulse 1s infinite;
+.section-title {
+    font-size: 21px;
+    font-weight: 900;
+    color: #ff64b4;
+    margin: 25px 0 15px;
+    text-shadow: 0 0 10px #a42b85;
 }
-
-.status.hidden {
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
-}
-
-/* =================================
-   TARJETAS
-================================= */
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(
-        auto-fill,
-        minmax(230px, 1fr)
-    );
-    gap: 17px;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 16px;
 }
 
 .card {
-    position: relative;
+    background: linear-gradient(145deg, #24213b, #121225);
+    border: 1px solid #513c78;
+    border-radius: 12px;
     overflow: hidden;
-    background: linear-gradient(160deg,#1b103b,#080618);
-    border: 2px solid #6826c9;
-    border-radius: 13px;
-    padding: 13px;
-    transition: .25s;
-    animation: cardAppear .45s ease both;
-}
-
-.card:before {
-    content: "";
-    position: absolute;
-    height: 4px;
-    width: 100%;
-    left: -100%;
-    top: 0;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--cyan),
-        var(--pink),
-        transparent
-    );
-    transition: .5s;
-}
-
-.card:hover:before {
-    left: 100%;
+    transition: 0.2s;
+    min-width: 0;
 }
 
 .card:hover {
-    transform: translateY(-6px) scale(1.015);
-    border-color: var(--pink);
-    box-shadow:
-        0 0 18px #ff00b833,
-        0 0 25px #00eaff22;
+    border-color: #00d9ff;
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+    transform: translateY(-3px);
 }
 
-/* PORTADAS */
-
 .cover {
-    position: relative;
     width: 100%;
-    height: 175px;
-    overflow: hidden;
+    height: 155px;
+    object-fit: contain;
+    background: #0d0d1c;
+    display: block;
+    padding: 8px;
+}
+
+.no-cover {
+    width: 100%;
+    height: 155px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(circle,#391065,#0b0821);
-    border-radius: 8px;
-    margin-bottom: 13px;
-    border: 1px solid #3b2869;
+    background: linear-gradient(135deg, #34204c, #101020);
+    font-size: 45px;
 }
 
-.cover img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transition: transform .4s;
+.card-content {
+    padding: 13px;
 }
 
-.card:hover .cover img {
-    transform: scale(1.07);
-}
-
-.cover-fallback {
-    font-size: 65px;
-    text-shadow: 0 0 20px #9c00ff;
-}
-
-/* DETALLES */
-
-.file-name {
+.name {
     font-size: 16px;
-    font-weight: 900;
-    text-align: center;
-    overflow-wrap: anywhere;
-    min-height: 42px;
-    margin: 7px 0;
-}
-
-.tag {
-    display: table;
-    margin: 0 auto 8px;
-    background: #250b45;
-    color: #ff67df;
-    border: 1px solid #a32bff;
-    padding: 5px 9px;
-    border-radius: 5px;
-    font-size: 11px;
     font-weight: bold;
+    overflow-wrap: anywhere;
+    min-height: 38px;
 }
 
-.file-info {
-    text-align: center;
-    color: #b5a3d8;
-    font-size: 13px;
-    margin: 10px 0 14px;
+.info {
+    font-size: 12px;
+    color: #b8b8d0;
+    margin: 9px 0 12px;
 }
 
 .download {
     display: block;
-    text-decoration: none;
+    width: 100%;
     text-align: center;
+    padding: 12px 5px;
+    background: linear-gradient(90deg, #ed3297, #853bd4);
     color: white;
-    font-weight: 900;
-    padding: 13px;
-    border-radius: 8px;
-    border: 1px solid #ff56dc;
-    background: linear-gradient(90deg,#9400ff,#ff00a8);
-    transition: .25s;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 7px;
 }
 
 .download:hover {
-    background: linear-gradient(90deg,#00bfff,#0066ff);
-    border-color: var(--cyan);
-    box-shadow: 0 0 16px #00eaff66;
+    background: linear-gradient(90deg, #00bfe9, #4266e9);
 }
-
-/* VACÍO */
 
 .empty {
-    grid-column: 1/-1;
     text-align: center;
-    padding: 45px 15px;
-    background: #100824;
-    border: 2px dashed #7132d5;
-    border-radius: 12px;
-    color: #baa6dc;
+    padding: 40px 10px;
+    color: #aaa;
+    grid-column: 1 / -1;
 }
-
-/* =================================
-   FOOTER
-================================= */
 
 footer {
-    position: relative;
-    z-index: 1;
-    margin-top: 45px;
-    padding: 30px 15px;
     text-align: center;
-    background: #090416;
-    border-top: 3px solid #7c00ff;
-    color: #b6a4d2;
+    color: #777;
+    padding: 30px 10px;
+    font-size: 12px;
 }
 
-.footer-logo {
-    font-size: 25px;
-    font-weight: 1000;
-    font-style: italic;
-    color: var(--pink);
-    text-shadow: 0 0 15px var(--pink);
-    margin-bottom: 12px;
-}
-
-.footer-graffiti {
-    color: var(--cyan);
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 3px;
-}
-
-/* =================================
-   ANIMACIONES
-================================= */
-
-@keyframes logoGlow {
-    from { filter: brightness(1); }
-    to { filter: brightness(1.35); }
-}
-
-@keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-}
-
-@keyframes graffitiFloat {
-    0%,100% { margin-top: 0; }
-    50% { margin-top: 15px; }
-}
-
-@keyframes pulse {
-    0%,100% { opacity: 1; }
-    50% { opacity: .5; }
-}
-
-@keyframes starSpin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes cardAppear {
-    from {
-        opacity: 0;
-        transform: translateY(18px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* =================================
-   MÓVILES
-================================= */
-
-@media(max-width:600px) {
-
-    header {
-        padding: 35px 10px;
-    }
-
+@media(max-width: 450px) {
     .logo {
-        letter-spacing: -2px;
-    }
-
-    .subtitle {
-        font-size: 11px;
-        letter-spacing: 2px;
-    }
-
-    .container {
-        width: 97%;
-    }
-
-    .panel {
-        padding: 12px;
+        font-size: 30px;
     }
 
     .grid {
-        grid-template-columns: repeat(
-            auto-fill,
-            minmax(145px,1fr)
-        );
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
     }
 
-    .card {
-        padding: 10px;
-    }
-
-    .cover {
+    .cover,
+    .no-cover {
         height: 120px;
-    }
-
-    .file-name {
-        font-size: 14px;
-    }
-
-    .download {
-        font-size: 12px;
-        padding: 10px;
-    }
-
-    .category {
-        padding: 9px 5px;
-        font-size: 12px;
-    }
-
-    .wall-graffiti {
-        opacity: .12;
-    }
-
-    .graffiti-a,
-    .graffiti-d {
-        font-size: 48px;
-    }
-
-    .graffiti-b,
-    .graffiti-c {
-        font-size: 60px;
-    }
-}
-
-/* ACCESIBILIDAD */
-
-@media(prefers-reduced-motion:reduce) {
-    * {
-        animation: none !important;
-        transition: none !important;
     }
 }
 </style>
@@ -678,115 +219,45 @@ footer {
 
 <body>
 
-<!-- DECORACIONES GRAFFITI -->
-
-<div class="wall-graffiti graffiti-a">VICE CITY</div>
-<div class="wall-graffiti graffiti-b">LUCX</div>
-<div class="wall-graffiti graffiti-c">PS3</div>
-<div class="wall-graffiti graffiti-d">GAMING</div>
-<div class="wall-graffiti graffiti-e">★ STREET ★</div>
-
-<div class="paint-splash splash-one"></div>
-<div class="paint-splash splash-two"></div>
-<div class="paint-splash splash-three"></div>
-
-<div class="decor-star star-one">✦</div>
-<div class="decor-star star-two">★</div>
-
-<!-- HEADER -->
-
 <header>
-
-    <div class="logo">
-        LUCX<span>HUB</span>
-    </div>
-
-    <div class="subtitle">
-        PS3 STORE · GAMING · DOWNLOAD ZONE
-    </div>
-
-    <div class="paint-text">
-        DOWNLOAD · PLAY · ENJOY
-    </div>
-
+    <div class="logo">LUCXHUB</div>
+    <div class="subtitle">PLAYSTATION 3 • GAMING STORE</div>
 </header>
-
-<!-- CONTENIDO -->
 
 <div class="container">
 
     <div class="panel">
+        <input
+            class="search"
+            type="text"
+            id="search"
+            placeholder="Buscar juegos, aplicaciones, archivos..."
+        >
 
-        <div class="search-row">
-
-            <input
-                id="search"
-                class="search"
-                type="text"
-                placeholder="🔎 Buscar archivos..."
-            >
-
-            <button
-                class="refresh"
-                onclick="loadFiles()"
-            >
-                ↻ ACTUALIZAR
-            </button>
-
+        <div class="filters">
+            <button class="filter active" data-filter="all">TODOS</button>
+            <button class="filter" data-filter="pkg">PKG</button>
+            <button class="filter" data-filter="zip">ZIP</button>
+            <button class="filter" data-filter="rap">RAP</button>
+            <button class="filter" data-filter="other">OTROS</button>
         </div>
 
-        <div class="categories">
-
-            <button class="category active" data-category="all">
-                ★ TODOS
-            </button>
-
-            <button class="category" data-category="pkg">
-                📦 PKG
-            </button>
-
-            <button class="category" data-category="zip">
-                🗜 ZIP
-            </button>
-
-            <button class="category" data-category="rap">
-                🔑 RAP
-            </button>
-
-            <button class="category" data-category="other">
-                📁 OTROS
-            </button>
-
-        </div>
-
+        <div class="status" id="status">Cargando LUCXHUB...</div>
     </div>
 
-    <div id="status" class="status loading">
-        ⟳ Conectando con LUCXHUB...
-    </div>
+    <div class="section-title">▸ BIBLIOTECA LUCXHUB</div>
 
-    <div id="files" class="grid"></div>
+    <div class="grid" id="grid">
+        <div class="empty">Cargando archivos...</div>
+    </div>
 
 </div>
 
-<!-- FOOTER -->
-
 <footer>
-
-    <div class="footer-logo">LUCXHUB</div>
-
-    <div class="footer-graffiti">
-        PS3 STORE · GAMING · HOMEBREW
-    </div>
-
-    <br>
-
-    Hecho para la comunidad.
-
+    LUCXHUB © 2026 · PLAYSTATION 3
 </footer>
 
 <script>
-
 /* =================================
    CONFIGURACIÓN
 ================================= */
@@ -796,430 +267,394 @@ var REPO = "LUCXHUB";
 var BRANCH = "main";
 
 var FILES_FOLDER = "Files";
+var LINKS_FOLDER = "LINKS";
 var ICONS_FOLDER = "ICONS";
 
 var allFiles = [];
-var iconMap = {};
-var currentCategory = "all";
-var statusTimer = null;
+var currentFilter = "all";
+var currentSearch = "";
 
 /* =================================
-   MENSAJES
+   FUNCIONES GENERALES
 ================================= */
 
-function showStatus(message, isError) {
-
-    var status = document.getElementById("status");
-
-    if (statusTimer !== null) {
-        clearTimeout(statusTimer);
-        statusTimer = null;
-    }
-
-    status.className = "status";
-    status.textContent = message;
-
-    if (isError) {
-        return;
-    }
-
-    statusTimer = setTimeout(function() {
-        status.classList.add("hidden");
-        statusTimer = null;
-    }, 3000);
+function apiFolder(folder) {
+    return "https://api.github.com/repos/" +
+        OWNER + "/" + REPO +
+        "/contents/" + folder +
+        "?ref=" + BRANCH;
 }
 
-/* =================================
-   NOMBRES Y EXTENSIONES
-================================= */
-
-function baseName(name) {
-
-    var dot = name.lastIndexOf(".");
-
-    if (dot === -1) return name;
-
-    return name.substring(0, dot);
+function baseName(filename) {
+    return filename.replace(/\.[^/.]+$/, "");
 }
 
-function getExtension(name) {
+function getCategory(filename) {
+    var extension = filename.split(".").pop().toLowerCase();
 
-    var dot = name.lastIndexOf(".");
-
-    if (dot === -1) return "";
-
-    return name.substring(dot + 1).toLowerCase();
-}
-
-/* =================================
-   CATEGORÍAS
-================================= */
-
-function getCategory(file) {
-
-    var ext = getExtension(file.name);
-
-    if (ext === "pkg") return "pkg";
-    if (ext === "zip") return "zip";
-    if (ext === "rap") return "rap";
+    if (extension === "pkg") return "pkg";
+    if (extension === "zip") return "zip";
+    if (extension === "rap") return "rap";
 
     return "other";
 }
 
-/* =================================
-   ICONOS DE RESPALDO
-================================= */
-
-function getIcon(file) {
-
-    var ext = getExtension(file.name);
-
-    if (ext === "pkg") return "📦";
-    if (ext === "zip" || ext === "rar" || ext === "7z")
-        return "🗜️";
-
-    if (ext === "rap") return "🔑";
-    if (ext === "iso") return "💿";
-    if (ext === "txt") return "📄";
-
-    return "📁";
-}
-
-/* =================================
-   TAMAÑO
-================================= */
-
 function formatSize(bytes) {
+    if (!bytes || bytes <= 0) return "Tamaño desconocido";
 
-    if (bytes < 1024)
-        return bytes + " B";
+    var units = ["B", "KB", "MB", "GB"];
+    var i = 0;
 
-    if (bytes < 1048576)
-        return (bytes / 1024).toFixed(2) + " KB";
-
-    if (bytes < 1073741824)
-        return (bytes / 1048576).toFixed(2) + " MB";
-
-    return (bytes / 1073741824).toFixed(2) + " GB";
-}
-
-/* =================================
-   API DE GITHUB
-================================= */
-
-function apiFolder(folder) {
-
-    return "https://api.github.com/repos/" +
-        OWNER + "/" + REPO +
-        "/contents/" + encodeURIComponent(folder) +
-        "?ref=" + BRANCH;
-}
-
-/* =================================
-   CARGAR ICONS
-================================= */
-
-function loadIcons(callback) {
-
-    iconMap = {};
-
-    var xhr = new XMLHttpRequest();
-
-    xhr.open("GET", apiFolder(ICONS_FOLDER), true);
-
-    xhr.onload = function() {
-
-        if (xhr.status !== 200) {
-            callback();
-            return;
-        }
-
-        var data;
-
-        try {
-            data = JSON.parse(xhr.responseText);
-        } catch(e) {
-            callback();
-            return;
-        }
-
-        for (var i = 0; i < data.length; i++) {
-
-            var item = data[i];
-
-            if (item.type !== "file") continue;
-
-            var ext = getExtension(item.name);
-
-            if (
-                ext !== "png" &&
-                ext !== "jpg" &&
-                ext !== "jpeg" &&
-                ext !== "webp" &&
-                ext !== "gif"
-            ) {
-                continue;
-            }
-
-            var key = baseName(item.name).toLowerCase();
-
-            iconMap[key] = item.download_url;
-        }
-
-        callback();
-    };
-
-    xhr.onerror = function() {
-        callback();
-    };
-
-    xhr.send();
-}
-
-/* =================================
-   CARGAR FILES
-================================= */
-
-function loadFiles() {
-
-    var status = document.getElementById("status");
-    var container = document.getElementById("files");
-
-    if (statusTimer !== null) {
-        clearTimeout(statusTimer);
-        statusTimer = null;
+    while (bytes >= 1024 && i < 3) {
+        bytes /= 1024;
+        i++;
     }
 
-    status.className = "status loading";
-    status.textContent = "⟳ Cargando archivos e ICONS...";
-    container.innerHTML = "";
+    return bytes.toFixed(2) + " " + units[i];
+}
 
+function showStatus(message) {
+    document.getElementById("status").textContent = message;
+}
+
+/* =================================
+   CARGAR ARCHIVOS DE FILES
+================================= */
+
+function loadFiles(callback) {
     var xhr = new XMLHttpRequest();
 
     xhr.open("GET", apiFolder(FILES_FOLDER), true);
 
-    xhr.onload = function() {
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState !== 4) return;
 
-        if (xhr.status !== 200) {
+        if (xhr.status === 200) {
+            try {
+                var files = JSON.parse(xhr.responseText);
 
-            status.className = "status";
+                files.forEach(function(file) {
+                    if (file.type !== "file") return;
 
-            showStatus(
-                "⚠ Error cargando Files. Revisá la carpeta y el repositorio.",
-                true
-            );
+                    allFiles.push({
+                        name: file.name,
+                        displayName: baseName(file.name),
+                        size: file.size,
+                        sizeLabel: null,
+                        download: file.download_url,
+                        key: baseName(file.name).toLowerCase(),
+                        external: false,
+                        category: getCategory(file.name)
+                    });
+                });
 
-            return;
+            } catch (e) {
+                console.log("Error cargando Files:", e);
+            }
         }
 
-        var data;
-
-        try {
-            data = JSON.parse(xhr.responseText);
-        } catch(e) {
-
-            showStatus(
-                "⚠ Error leyendo la respuesta de GitHub.",
-                true
-            );
-
-            return;
-        }
-
-        allFiles = [];
-
-        for (var i = 0; i < data.length; i++) {
-
-            var file = data[i];
-
-            if (file.type !== "file") continue;
-            if (file.name === "README.txt") continue;
-
-            allFiles.push({
-                name: file.name,
-                size: file.size,
-                download: file.download_url,
-                key: baseName(file.name).toLowerCase()
-            });
-        }
-
-        loadIcons(function() {
-
-            renderFiles();
-
-            showStatus(
-                "✓ " + allFiles.length +
-                " archivos cargados · ICONS sincronizados",
-                false
-            );
-
-        });
+        callback();
     };
 
     xhr.onerror = function() {
-
-        showStatus(
-            "⚠ No se pudo conectar con GitHub.",
-            true
-        );
+        callback();
     };
 
     xhr.send();
 }
 
 /* =================================
-   MOSTRAR ARCHIVOS
+   CARGAR ENLACES TXT DE LINKS
+================================= */
+
+function loadLinks(callback) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("GET", apiFolder(LINKS_FOLDER), true);
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState !== 4) return;
+
+        if (xhr.status !== 200) {
+            callback();
+            return;
+        }
+
+        var files;
+
+        try {
+            files = JSON.parse(xhr.responseText);
+        } catch (e) {
+            callback();
+            return;
+        }
+
+        var txtFiles = files.filter(function(file) {
+            return file.type === "file" &&
+                /\.txt$/i.test(file.name);
+        });
+
+        if (txtFiles.length === 0) {
+            callback();
+            return;
+        }
+
+        var completed = 0;
+
+        function finishOne() {
+            completed++;
+
+            if (completed === txtFiles.length) {
+                callback();
+            }
+        }
+
+        txtFiles.forEach(function(file) {
+            var txt = new XMLHttpRequest();
+
+            txt.open("GET", file.download_url, true);
+
+            txt.onreadystatechange = function() {
+                if (txt.readyState !== 4) return;
+
+                if (txt.status === 200) {
+                    var link = txt.responseText.trim();
+
+                    if (/^https?:\/\/\S+$/i.test(link)) {
+                        var filename = file.name.replace(/\.txt$/i, "");
+                        var category = getCategory(filename);
+
+                        var displayName = filename.replace(
+                            /\.(pkg|zip|rap)$/i,
+                            ""
+                        );
+
+                        allFiles.push({
+                            name: filename,
+                            displayName: displayName,
+                            size: 0,
+                            sizeLabel: "Descarga externa · MediaFire",
+                            download: link,
+                            key: displayName.toLowerCase(),
+                            external: true,
+                            category: category
+                        });
+                    }
+                }
+
+                finishOne();
+            };
+
+            txt.onerror = finishOne;
+
+            txt.send();
+        });
+    };
+
+    xhr.onerror = function() {
+        callback();
+    };
+
+    xhr.send();
+}
+
+/* =================================
+   CARGAR ICONOS
+================================= */
+
+var iconMap = {};
+
+function loadIcons(callback) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("GET", apiFolder(ICONS_FOLDER), true);
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState !== 4) return;
+
+        if (xhr.status === 200) {
+            try {
+                var icons = JSON.parse(xhr.responseText);
+
+                icons.forEach(function(icon) {
+                    if (icon.type !== "file") return;
+
+                    if (!/\.(png|jpg|jpeg|webp|gif)$/i.test(icon.name)) {
+                        return;
+                    }
+
+                    var key = baseName(icon.name).toLowerCase();
+
+                    iconMap[key] = icon.download_url;
+                });
+
+            } catch (e) {
+                console.log("Error cargando ICONS:", e);
+            }
+        }
+
+        callback();
+    };
+
+    xhr.onerror = function() {
+        callback();
+    };
+
+    xhr.send();
+}
+
+/* =================================
+   RENDERIZAR TARJETAS
 ================================= */
 
 function renderFiles() {
+    var grid = document.getElementById("grid");
 
-    var container = document.getElementById("files");
+    grid.innerHTML = "";
 
-    var search = document.getElementById("search")
-        .value.toLowerCase();
+    var filtered = allFiles.filter(function(file) {
+        var matchesFilter =
+            currentFilter === "all" ||
+            file.category === currentFilter;
 
-    container.innerHTML = "";
+        var searchText = (
+            file.displayName + " " + file.name
+        ).toLowerCase();
 
-    var count = 0;
+        var matchesSearch =
+            searchText.indexOf(currentSearch) !== -1;
 
-    for (var i = 0; i < allFiles.length; i++) {
+        return matchesFilter && matchesSearch;
+    });
 
-        var file = allFiles[i];
-        var category = getCategory(file);
+    if (filtered.length === 0) {
+        grid.innerHTML =
+            '<div class="empty">No se encontraron archivos.</div>';
+        return;
+    }
 
-        if (
-            currentCategory !== "all" &&
-            category !== currentCategory
-        ) {
-            continue;
-        }
-
-        if (
-            file.name.toLowerCase().indexOf(search) === -1
-        ) {
-            continue;
-        }
-
-        count++;
-
+    filtered.forEach(function(file) {
         var card = document.createElement("div");
         card.className = "card";
 
-        /* PORTADA */
+        var iconKey = file.key;
+        var iconUrl = iconMap[iconKey];
 
-        var cover = document.createElement("div");
-        cover.className = "cover";
-
-        var iconURL = iconMap[file.key];
-
-        if (iconURL) {
-
-            var image = document.createElement("img");
-
-            image.src = iconURL;
-            image.alt = file.name;
-
-            image.onerror = function() {
-                this.style.display = "none";
-            };
-
-            cover.appendChild(image);
-
-        } else {
-
-            var fallback = document.createElement("div");
-            fallback.className = "cover-fallback";
-            fallback.textContent = getIcon(file);
-
-            cover.appendChild(fallback);
+        if (!iconUrl) {
+            iconKey = baseName(file.name).toLowerCase();
+            iconUrl = iconMap[iconKey];
         }
 
-        /* ETIQUETA */
+        if (iconUrl) {
+            var image = document.createElement("img");
+            image.className = "cover";
+            image.src = iconUrl;
+            image.alt = file.displayName;
 
-        var tag = document.createElement("div");
-        tag.className = "tag";
-        tag.textContent = category.toUpperCase();
+            image.onerror = function() {
+                var fallback = document.createElement("div");
+                fallback.className = "no-cover";
+                fallback.textContent = "🎮";
+                image.parentNode.replaceChild(fallback, image);
+            };
 
-        /* NOMBRE */
+            card.appendChild(image);
+        } else {
+            var noCover = document.createElement("div");
+            noCover.className = "no-cover";
+            noCover.textContent = "🎮";
+            card.appendChild(noCover);
+        }
+
+        var content = document.createElement("div");
+        content.className = "card-content";
 
         var name = document.createElement("div");
-        name.className = "file-name";
-        name.textContent = file.name;
-
-        /* TAMAÑO */
+        name.className = "name";
+        name.textContent = file.displayName || file.name;
 
         var info = document.createElement("div");
-        info.className = "file-info";
-        info.textContent = formatSize(file.size);
-
-        /* DESCARGA */
+        info.className = "info";
+        info.textContent =
+            file.sizeLabel || formatSize(file.size);
 
         var link = document.createElement("a");
         link.className = "download";
         link.href = file.download;
-        link.textContent = "⬇ DESCARGAR";
-        link.setAttribute("download", file.name);
 
-        /* ARMAR TARJETA */
+        if (file.external) {
+            link.textContent = "↗ ABRIR MEDIAFIRE";
+        } else {
+            link.textContent = "⬇ DESCARGAR";
+            link.setAttribute("download", file.name);
+        }
 
-        card.appendChild(cover);
-        card.appendChild(tag);
-        card.appendChild(name);
-        card.appendChild(info);
-        card.appendChild(link);
+        content.appendChild(name);
+        content.appendChild(info);
+        content.appendChild(link);
 
-        container.appendChild(card);
-    }
-
-    /* SIN RESULTADOS */
-
-    if (count === 0) {
-
-        var empty = document.createElement("div");
-        empty.className = "empty";
-
-        empty.textContent =
-            "╳ NO SE ENCONTRARON ARCHIVOS ╳";
-
-        container.appendChild(empty);
-    }
+        card.appendChild(content);
+        grid.appendChild(card);
+    });
 }
 
 /* =================================
    BUSCADOR
 ================================= */
 
-document.getElementById("search")
-    .addEventListener("input", renderFiles);
+document.getElementById("search").oninput = function() {
+    currentSearch = this.value.toLowerCase();
+    renderFiles();
+};
 
 /* =================================
-   CATEGORÍAS
+   FILTROS
 ================================= */
 
-var buttons = document.getElementsByClassName("category");
+var buttons = document.querySelectorAll(".filter");
 
 for (var i = 0; i < buttons.length; i++) {
-
     buttons[i].onclick = function() {
+        currentFilter = this.getAttribute("data-filter");
 
         for (var j = 0; j < buttons.length; j++) {
-            buttons[j].className = "category";
+            buttons[j].className = "filter";
         }
 
-        this.className = "category active";
-
-        currentCategory =
-            this.getAttribute("data-category");
+        this.className = "filter active";
 
         renderFiles();
     };
 }
 
 /* =================================
-   INICIAR
+   INICIAR LUCXHUB
 ================================= */
 
-loadFiles();
+function startStore() {
+    showStatus("Cargando archivos de GitHub...");
+
+    loadFiles(function() {
+
+        loadLinks(function() {
+
+            loadIcons(function() {
+
+                renderFiles();
+
+                showStatus(
+                    "✓ " + allFiles.length +
+                    " archivos cargados correctamente"
+                );
+
+            });
+
+        });
+
+    });
+}
+
+startStore();
 
 </script>
 
