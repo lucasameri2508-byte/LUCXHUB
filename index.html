@@ -4,214 +4,560 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#101020">
-<title>LUCXHUB | PS3</title>
+<meta name="theme-color" content="#080d18">
+<title>LUCXHUB | PS3 GAMING HUB</title>
 
 <style>
+:root {
+    --bg: #080d18;
+    --panel: #101a2b;
+    --panel2: #142239;
+    --line: #263c5c;
+    --cyan: #00d9ff;
+    --blue: #397cff;
+    --purple: #8957ff;
+    --white: #f4f8ff;
+    --muted: #8da2bf;
+    --green: #37e6a1;
+}
+
 * {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    background:
-        radial-gradient(ellipse at top, #29204d 0%, #101020 55%, #080812 100%);
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 50% -15%, rgba(0,217,255,.15), transparent 48%),
+        radial-gradient(ellipse at 100% 40%, rgba(137,87,255,.09), transparent 35%),
+        var(--bg);
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-header {
+/* FONDO */
+
+.background-effects {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.glow {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: .12;
+}
+
+.glow.one {
+    background: var(--cyan);
+    top: 10%;
+    left: -150px;
+}
+
+.glow.two {
+    background: var(--purple);
+    right: -160px;
+    top: 50%;
+}
+
+/* HEADER */
+
+.header {
+    position: relative;
+    overflow: hidden;
+    padding: 35px 15px 27px;
     text-align: center;
-    padding: 35px 15px 25px;
-    background: linear-gradient(135deg, #ff3195, #813bdb, #00d9ff);
-    border-bottom: 4px solid #ff70c0;
+    border-bottom: 1px solid #25415d;
+    background: linear-gradient(
+        135deg,
+        rgba(10,28,48,.98),
+        rgba(19,23,51,.98),
+        rgba(20,34,62,.98)
+    );
 }
 
-.logo {
-    font-size: 42px;
+.header:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--cyan),
+        var(--purple),
+        transparent
+    );
+}
+
+.brand {
+    display: inline-block;
+    font-size: 43px;
     font-weight: 900;
-    letter-spacing: 5px;
-    text-shadow: 3px 3px #17112c;
+    letter-spacing: 6px;
+    text-shadow: 0 0 18px rgba(0,217,255,.35);
 }
 
-.subtitle {
+.brand span {
+    color: var(--cyan);
+}
+
+.header-subtitle {
     margin-top: 8px;
-    font-size: 13px;
-    letter-spacing: 3px;
+    color: #a8c4e7;
+    font-size: 11px;
+    letter-spacing: 4px;
     font-weight: bold;
 }
 
+.header-tag {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 7px 14px;
+    border: 1px solid #28658b;
+    border-radius: 30px;
+    background: rgba(0,217,255,.07);
+    color: var(--cyan);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* CONTENEDOR */
+
 .container {
     width: 94%;
-    max-width: 1200px;
+    max-width: 1250px;
     margin: 25px auto;
 }
 
-.panel {
-    background: rgba(25, 25, 48, 0.95);
-    border: 1px solid #563d85;
-    border-radius: 12px;
+/* PRESENTACION */
+
+.hero {
+    position: relative;
+    padding: 27px;
+    overflow: hidden;
+    border: 1px solid #28476a;
+    border-radius: 14px;
+    background:
+        linear-gradient(110deg, rgba(19,39,65,.97), rgba(17,25,48,.97));
+    box-shadow: 0 8px 30px rgba(0,0,0,.22);
+}
+
+.hero:after {
+    content: "LX";
+    position: absolute;
+    right: 25px;
+    top: 5px;
+    font-size: 110px;
+    font-weight: 900;
+    color: rgba(0,217,255,.045);
+    pointer-events: none;
+}
+
+.hero h1 {
+    position: relative;
+    margin: 0 0 10px;
+    font-size: 25px;
+    z-index: 1;
+}
+
+.hero h1 span {
+    color: var(--cyan);
+}
+
+.hero p {
+    position: relative;
+    max-width: 650px;
+    margin: 0;
+    color: #a5b9d2;
+    font-size: 14px;
+    line-height: 1.6;
+    z-index: 1;
+}
+
+.hero-label {
+    display: inline-block;
+    margin-top: 17px;
+    color: var(--green);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* ESTADISTICAS */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.stat {
     padding: 17px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 18px rgba(140, 60, 255, 0.15);
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    text-align: center;
+}
+
+.stat-number {
+    color: var(--cyan);
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.stat-label {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* CATALOGO */
+
+.catalog-panel {
+    padding: 18px;
+    background: rgba(16,26,43,.96);
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    margin-top: 20px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: 19px;
+}
+
+.section-heading h2 span {
+    color: var(--cyan);
+}
+
+.catalog-label {
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* BUSCADOR */
+
+.search-row {
+    display: flex;
+    gap: 9px;
 }
 
 .search {
-    width: 100%;
+    flex: 1;
+    min-width: 0;
     padding: 14px;
-    background: #111122;
-    color: white;
-    border: 2px solid #7044b8;
+    background: #080f1c;
+    border: 1px solid #304b6b;
     border-radius: 8px;
-    font-size: 16px;
     outline: none;
+    color: white;
+    font-size: 15px;
 }
 
 .search:focus {
-    border-color: #00d9ff;
+    border-color: var(--cyan);
+    box-shadow: 0 0 12px rgba(0,217,255,.12);
 }
+
+.refresh {
+    padding: 0 16px;
+    background: #183657;
+    color: var(--cyan);
+    border: 1px solid #28709b;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.refresh:hover {
+    background: #20517c;
+}
+
+/* FILTROS */
 
 .filters {
     display: flex;
     flex-wrap: wrap;
-    gap: 9px;
-    margin-top: 14px;
+    gap: 8px;
+    margin-top: 13px;
 }
 
 .filter {
-    padding: 10px 17px;
-    background: #29213e;
-    color: white;
-    border: 1px solid #7146a9;
+    padding: 10px 16px;
+    border: 1px solid #304763;
+    background: #111d30;
+    color: #b7c8dd;
     border-radius: 7px;
-    cursor: pointer;
+    font-size: 11px;
     font-weight: bold;
+    cursor: pointer;
 }
 
-.filter.active,
-.filter:hover {
-    background: #ed3297;
-    border-color: #ff8bc9;
+.filter.active {
+    background: linear-gradient(100deg, #087baf, #4657c7);
+    color: white;
+    border-color: var(--cyan);
 }
+
+.filter:hover {
+    border-color: var(--cyan);
+}
+
+/* ESTADO */
 
 .status {
-    text-align: center;
-    color: #00eaff;
-    font-size: 13px;
     margin-top: 15px;
     min-height: 18px;
+    color: var(--cyan);
+    font-size: 12px;
 }
 
-.section-title {
-    font-size: 21px;
+.status.error {
+    color: #ff7777;
+}
+
+/* TARJETAS */
+
+.catalog-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 28px 0 16px;
+    font-size: 17px;
     font-weight: 900;
-    color: #ff64b4;
-    margin: 25px 0 15px;
-    text-shadow: 0 0 10px #a42b85;
+}
+
+.catalog-title:before {
+    content: "";
+    width: 4px;
+    height: 21px;
+    background: var(--cyan);
+    border-radius: 5px;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
     gap: 16px;
 }
 
 .card {
-    background: linear-gradient(145deg, #24213b, #121225);
-    border: 1px solid #513c78;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: 0.2s;
     min-width: 0;
+    overflow: hidden;
+    background: linear-gradient(145deg, #14243a, #0d1728);
+    border: 1px solid #263e5c;
+    border-radius: 12px;
+    transition: border-color .2s, box-shadow .2s;
 }
 
 .card:hover {
-    border-color: #00d9ff;
-    box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
-    transform: translateY(-3px);
+    border-color: var(--cyan);
+    box-shadow: 0 0 17px rgba(0,217,255,.13);
 }
 
 .cover {
+    display: block;
     width: 100%;
     height: 155px;
+    padding: 9px;
     object-fit: contain;
-    background: #0d0d1c;
-    display: block;
-    padding: 8px;
+    background:
+        radial-gradient(circle, #1b3551, #0a1422);
 }
 
 .no-cover {
+    display: flex;
     width: 100%;
     height: 155px;
-    display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #34204c, #101020);
-    font-size: 45px;
+    background: linear-gradient(135deg, #18324f, #11172d);
+    color: var(--cyan);
+    font-size: 46px;
+    font-weight: bold;
 }
 
 .card-content {
-    padding: 13px;
+    padding: 14px;
 }
 
-.name {
-    font-size: 16px;
+.card-name {
+    min-height: 38px;
+    font-size: 15px;
     font-weight: bold;
     overflow-wrap: anywhere;
-    min-height: 38px;
 }
 
-.info {
-    font-size: 12px;
-    color: #b8b8d0;
-    margin: 9px 0 12px;
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 11px 0;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.category {
+    display: inline-block;
+    padding: 5px 8px;
+    border-radius: 5px;
+    background: #203b59;
+    color: #8eeaff;
+    font-weight: bold;
+}
+
+.external-tag {
+    color: #b99cff;
 }
 
 .download {
     display: block;
     width: 100%;
-    text-align: center;
-    padding: 12px 5px;
-    background: linear-gradient(90deg, #ed3297, #853bd4);
+    padding: 12px 6px;
+    border-radius: 7px;
+    background: linear-gradient(100deg, #087eac, #4b55bd);
+    border: 1px solid #3986d0;
     color: white;
     text-decoration: none;
-    font-size: 12px;
-    font-weight: bold;
-    border-radius: 7px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .5px;
+}
+
+.download.external {
+    background: linear-gradient(100deg, #6439b8, #354dba);
+    border-color: #9271e8;
 }
 
 .download:hover {
-    background: linear-gradient(90deg, #00bfe9, #4266e9);
+    filter: brightness(1.25);
 }
+
+/* SIN RESULTADOS */
 
 .empty {
-    text-align: center;
-    padding: 40px 10px;
-    color: #aaa;
     grid-column: 1 / -1;
-}
-
-footer {
+    padding: 45px 10px;
+    border: 1px dashed #344b68;
+    border-radius: 10px;
     text-align: center;
-    color: #777;
-    padding: 30px 10px;
-    font-size: 12px;
+    color: var(--muted);
 }
 
-@media(max-width: 450px) {
-    .logo {
-        font-size: 30px;
+/* FOOTER */
+
+.footer {
+    margin-top: 45px;
+    padding: 25px 10px;
+    text-align: center;
+    border-top: 1px solid #1b3049;
+    background: #090f1c;
+}
+
+.footer-logo {
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+
+.footer-logo span {
+    color: var(--cyan);
+}
+
+.footer-text {
+    margin-top: 9px;
+    color: #6f839e;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+@media(max-width: 550px) {
+    .brand {
+        font-size: 32px;
+    }
+
+    .header-subtitle {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .hero {
+        padding: 21px;
+    }
+
+    .hero h1 {
+        font-size: 21px;
+    }
+
+    .stats {
+        gap: 7px;
+    }
+
+    .stat {
+        padding: 12px 5px;
+    }
+
+    .stat-number {
+        font-size: 20px;
+    }
+
+    .stat-label {
+        font-size: 8px;
     }
 
     .grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+        gap: 9px;
     }
 
     .cover,
     .no-cover {
         height: 120px;
+    }
+
+    .card-content {
+        padding: 10px;
+    }
+
+    .card-name {
+        font-size: 13px;
+    }
+
+    .search-row {
+        flex-wrap: wrap;
+    }
+
+    .refresh {
+        min-height: 43px;
     }
 }
 </style>
@@ -219,20 +565,77 @@ footer {
 
 <body>
 
-<header>
-    <div class="logo">LUCXHUB</div>
-    <div class="subtitle">PLAYSTATION 3 • GAMING STORE</div>
+<div class="background-effects">
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+</div>
+
+<!-- HEADER -->
+
+<header class="header">
+    <div class="brand">LUCX<span>HUB</span></div>
+    <div class="header-subtitle">
+        PLAYSTATION 3 GAMING PLATFORM
+    </div>
+    <div class="header-tag">SYSTEM ONLINE • PS3</div>
 </header>
 
-<div class="container">
+<main class="container">
 
-    <div class="panel">
-        <input
-            class="search"
-            type="text"
-            id="search"
-            placeholder="Buscar juegos, aplicaciones, archivos..."
-        >
+    <!-- PRESENTACION -->
+
+    <section class="hero">
+        <h1>BIENVENIDO A <span>LUCXHUB</span></h1>
+        <p>
+            Tu centro de descargas para PlayStation 3.
+            Explorá juegos, aplicaciones, herramientas y contenido
+            desde una biblioteca organizada en un solo lugar.
+        </p>
+        <div class="hero-label">
+            ◆ GAMING • SOFTWARE • DOWNLOADS
+        </div>
+    </section>
+
+    <!-- ESTADISTICAS -->
+
+    <section class="stats">
+        <div class="stat">
+            <div class="stat-number" id="totalCount">0</div>
+            <div class="stat-label">ARCHIVOS</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number" id="githubCount">0</div>
+            <div class="stat-label">GITHUB</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number" id="mediafireCount">0</div>
+            <div class="stat-label">MEDIAFIRE</div>
+        </div>
+    </section>
+
+    <!-- CATALOGO -->
+
+    <section class="catalog-panel">
+
+        <div class="section-heading">
+            <h2><span>▰</span> EXPLORAR CATÁLOGO</h2>
+            <div class="catalog-label">LUCXHUB LIBRARY</div>
+        </div>
+
+        <div class="search-row">
+            <input
+                id="search"
+                class="search"
+                type="text"
+                placeholder="Buscar contenido..."
+            >
+
+            <button class="refresh" id="refreshButton">
+                ↻ ACTUALIZAR
+            </button>
+        </div>
 
         <div class="filters">
             <button class="filter active" data-filter="all">TODOS</button>
@@ -242,25 +645,35 @@ footer {
             <button class="filter" data-filter="other">OTROS</button>
         </div>
 
-        <div class="status" id="status">Cargando LUCXHUB...</div>
+        <div class="status" id="status">
+            Conectando con LUCXHUB...
+        </div>
+
+    </section>
+
+    <div class="catalog-title">BIBLIOTECA DISPONIBLE</div>
+
+    <section class="grid" id="grid">
+        <div class="empty">Cargando biblioteca...</div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="footer-logo">LUCX<span>HUB</span></div>
+    <div class="footer-text">
+        PLAYSTATION 3 • GAMING PLATFORM • 2026
     </div>
-
-    <div class="section-title">▸ BIBLIOTECA LUCXHUB</div>
-
-    <div class="grid" id="grid">
-        <div class="empty">Cargando archivos...</div>
+    <div class="footer-text">
+        DESIGNED FOR THE GAMING COMMUNITY
     </div>
-
-</div>
-
-<footer>
-    LUCXHUB © 2026 · PLAYSTATION 3
 </footer>
 
 <script>
-/* =================================
-   CONFIGURACIÓN
-================================= */
+
+/* ======================================
+   CONFIGURACION PRINCIPAL
+====================================== */
 
 var OWNER = "lucasameri2508-byte";
 var REPO = "LUCXHUB";
@@ -271,12 +684,14 @@ var LINKS_FOLDER = "LINKS";
 var ICONS_FOLDER = "ICONS";
 
 var allFiles = [];
+var iconMap = {};
+
 var currentFilter = "all";
 var currentSearch = "";
 
-/* =================================
-   FUNCIONES GENERALES
-================================= */
+/* ======================================
+   API GITHUB
+====================================== */
 
 function apiFolder(folder) {
     return "https://api.github.com/repos/" +
@@ -284,6 +699,10 @@ function apiFolder(folder) {
         "/contents/" + folder +
         "?ref=" + BRANCH;
 }
+
+/* ======================================
+   FUNCIONES
+====================================== */
 
 function baseName(filename) {
     return filename.replace(/\.[^/.]+$/, "");
@@ -300,26 +719,29 @@ function getCategory(filename) {
 }
 
 function formatSize(bytes) {
-    if (!bytes || bytes <= 0) return "Tamaño desconocido";
+    if (!bytes || bytes <= 0) return "Desconocido";
 
     var units = ["B", "KB", "MB", "GB"];
     var i = 0;
 
     while (bytes >= 1024 && i < 3) {
-        bytes /= 1024;
+        bytes = bytes / 1024;
         i++;
     }
 
     return bytes.toFixed(2) + " " + units[i];
 }
 
-function showStatus(message) {
-    document.getElementById("status").textContent = message;
+function showStatus(message, error) {
+    var status = document.getElementById("status");
+
+    status.textContent = message;
+    status.className = error ? "status error" : "status";
 }
 
-/* =================================
-   CARGAR ARCHIVOS DE FILES
-================================= */
+/* ======================================
+   CARGAR ARCHIVOS NORMALES
+====================================== */
 
 function loadFiles(callback) {
     var xhr = new XMLHttpRequest();
@@ -348,24 +770,27 @@ function loadFiles(callback) {
                     });
                 });
 
-            } catch (e) {
-                console.log("Error cargando Files:", e);
+            } catch(e) {
+                console.log("Error Files:", e);
             }
+
+        } else {
+            console.log("No se pudo acceder a Files.");
         }
 
-        callback();
+        callback(xhr.status === 200);
     };
 
     xhr.onerror = function() {
-        callback();
+        callback(false);
     };
 
     xhr.send();
 }
 
-/* =================================
-   CARGAR ENLACES TXT DE LINKS
-================================= */
+/* ======================================
+   CARGAR LINKS TXT
+====================================== */
 
 function loadLinks(callback) {
     var xhr = new XMLHttpRequest();
@@ -376,7 +801,7 @@ function loadLinks(callback) {
         if (xhr.readyState !== 4) return;
 
         if (xhr.status !== 200) {
-            callback();
+            callback(false);
             return;
         }
 
@@ -384,8 +809,8 @@ function loadLinks(callback) {
 
         try {
             files = JSON.parse(xhr.responseText);
-        } catch (e) {
-            callback();
+        } catch(e) {
+            callback(false);
             return;
         }
 
@@ -395,17 +820,17 @@ function loadLinks(callback) {
         });
 
         if (txtFiles.length === 0) {
-            callback();
+            callback(true);
             return;
         }
 
         var completed = 0;
 
-        function finishOne() {
+        function finish() {
             completed++;
 
             if (completed === txtFiles.length) {
-                callback();
+                callback(true);
             }
         }
 
@@ -422,7 +847,6 @@ function loadLinks(callback) {
 
                     if (/^https?:\/\/\S+$/i.test(link)) {
                         var filename = file.name.replace(/\.txt$/i, "");
-                        var category = getCategory(filename);
 
                         var displayName = filename.replace(
                             /\.(pkg|zip|rap)$/i,
@@ -433,36 +857,34 @@ function loadLinks(callback) {
                             name: filename,
                             displayName: displayName,
                             size: 0,
-                            sizeLabel: "Descarga externa · MediaFire",
+                            sizeLabel: "ENLACE EXTERNO",
                             download: link,
                             key: displayName.toLowerCase(),
                             external: true,
-                            category: category
+                            category: getCategory(filename)
                         });
                     }
                 }
 
-                finishOne();
+                finish();
             };
 
-            txt.onerror = finishOne;
+            txt.onerror = finish;
 
             txt.send();
         });
     };
 
     xhr.onerror = function() {
-        callback();
+        callback(false);
     };
 
     xhr.send();
 }
 
-/* =================================
+/* ======================================
    CARGAR ICONOS
-================================= */
-
-var iconMap = {};
+====================================== */
 
 function loadIcons(callback) {
     var xhr = new XMLHttpRequest();
@@ -488,24 +910,49 @@ function loadIcons(callback) {
                     iconMap[key] = icon.download_url;
                 });
 
-            } catch (e) {
-                console.log("Error cargando ICONS:", e);
+            } catch(e) {
+                console.log("Error ICONS:", e);
             }
+
+            callback(true);
+            return;
         }
 
-        callback();
+        callback(false);
     };
 
     xhr.onerror = function() {
-        callback();
+        callback(false);
     };
 
     xhr.send();
 }
 
-/* =================================
-   RENDERIZAR TARJETAS
-================================= */
+/* ======================================
+   ESTADISTICAS
+====================================== */
+
+function updateStats() {
+    var total = allFiles.length;
+    var github = 0;
+    var mediafire = 0;
+
+    allFiles.forEach(function(file) {
+        if (file.external) {
+            mediafire++;
+        } else {
+            github++;
+        }
+    });
+
+    document.getElementById("totalCount").textContent = total;
+    document.getElementById("githubCount").textContent = github;
+    document.getElementById("mediafireCount").textContent = mediafire;
+}
+
+/* ======================================
+   DIBUJAR CATALOGO
+====================================== */
 
 function renderFiles() {
     var grid = document.getElementById("grid");
@@ -517,36 +964,35 @@ function renderFiles() {
             currentFilter === "all" ||
             file.category === currentFilter;
 
-        var searchText = (
-            file.displayName + " " + file.name
+        var text = (
+            file.name + " " + file.displayName
         ).toLowerCase();
 
         var matchesSearch =
-            searchText.indexOf(currentSearch) !== -1;
+            text.indexOf(currentSearch) !== -1;
 
         return matchesFilter && matchesSearch;
     });
 
     if (filtered.length === 0) {
         grid.innerHTML =
-            '<div class="empty">No se encontraron archivos.</div>';
+            '<div class="empty">NO SE ENCONTRARON RESULTADOS</div>';
         return;
     }
 
     filtered.forEach(function(file) {
-        var card = document.createElement("div");
+        var card = document.createElement("article");
         card.className = "card";
 
-        var iconKey = file.key;
-        var iconUrl = iconMap[iconKey];
+        var iconUrl = iconMap[file.key];
 
         if (!iconUrl) {
-            iconKey = baseName(file.name).toLowerCase();
-            iconUrl = iconMap[iconKey];
+            iconUrl = iconMap[baseName(file.name).toLowerCase()];
         }
 
         if (iconUrl) {
             var image = document.createElement("img");
+
             image.className = "cover";
             image.src = iconUrl;
             image.alt = file.displayName;
@@ -554,15 +1000,18 @@ function renderFiles() {
             image.onerror = function() {
                 var fallback = document.createElement("div");
                 fallback.className = "no-cover";
-                fallback.textContent = "🎮";
+                fallback.textContent = "LX";
                 image.parentNode.replaceChild(fallback, image);
             };
 
             card.appendChild(image);
+
         } else {
             var noCover = document.createElement("div");
+
             noCover.className = "no-cover";
-            noCover.textContent = "🎮";
+            noCover.textContent = "LX";
+
             card.appendChild(noCover);
         }
 
@@ -570,55 +1019,74 @@ function renderFiles() {
         content.className = "card-content";
 
         var name = document.createElement("div");
-        name.className = "name";
+        name.className = "card-name";
         name.textContent = file.displayName || file.name;
 
-        var info = document.createElement("div");
-        info.className = "info";
-        info.textContent =
-            file.sizeLabel || formatSize(file.size);
+        var meta = document.createElement("div");
+        meta.className = "card-meta";
 
-        var link = document.createElement("a");
-        link.className = "download";
-        link.href = file.download;
+        var category = document.createElement("span");
+        category.className = "category";
+        category.textContent = file.category.toUpperCase();
+
+        var size = document.createElement("span");
 
         if (file.external) {
-            link.textContent = "↗ ABRIR MEDIAFIRE";
+            size.className = "external-tag";
+            size.textContent = "MEDIAFIRE";
         } else {
-            link.textContent = "⬇ DESCARGAR";
-            link.setAttribute("download", file.name);
+            size.textContent = formatSize(file.size);
         }
 
+        var button = document.createElement("a");
+        button.className = "download";
+
+        button.href = file.download;
+
+        if (file.external) {
+            button.className += " external";
+            button.textContent = "↗ ABRIR MEDIAFIRE";
+            button.target = "_blank";
+            button.rel = "noopener noreferrer";
+        } else {
+            button.textContent = "↓ DESCARGAR";
+            button.setAttribute("download", file.name);
+        }
+
+        meta.appendChild(category);
+        meta.appendChild(size);
+
         content.appendChild(name);
-        content.appendChild(info);
-        content.appendChild(link);
+        content.appendChild(meta);
+        content.appendChild(button);
 
         card.appendChild(content);
+
         grid.appendChild(card);
     });
 }
 
-/* =================================
+/* ======================================
    BUSCADOR
-================================= */
+====================================== */
 
 document.getElementById("search").oninput = function() {
     currentSearch = this.value.toLowerCase();
     renderFiles();
 };
 
-/* =================================
+/* ======================================
    FILTROS
-================================= */
+====================================== */
 
-var buttons = document.querySelectorAll(".filter");
+var filterButtons = document.querySelectorAll(".filter");
 
-for (var i = 0; i < buttons.length; i++) {
-    buttons[i].onclick = function() {
+for (var i = 0; i < filterButtons.length; i++) {
+    filterButtons[i].onclick = function() {
         currentFilter = this.getAttribute("data-filter");
 
-        for (var j = 0; j < buttons.length; j++) {
-            buttons[j].className = "filter";
+        for (var j = 0; j < filterButtons.length; j++) {
+            filterButtons[j].className = "filter";
         }
 
         this.className = "filter active";
@@ -627,25 +1095,44 @@ for (var i = 0; i < buttons.length; i++) {
     };
 }
 
-/* =================================
-   INICIAR LUCXHUB
-================================= */
+/* ======================================
+   ACTUALIZAR CATALOGO
+====================================== */
 
 function startStore() {
-    showStatus("Cargando archivos de GitHub...");
+    allFiles = [];
+    iconMap = {};
 
-    loadFiles(function() {
+    showStatus("CONECTANDO CON GITHUB...");
 
-        loadLinks(function() {
+    document.getElementById("grid").innerHTML =
+        '<div class="empty">ACTUALIZANDO BIBLIOTECA...</div>';
 
-            loadIcons(function() {
+    loadFiles(function(filesOK) {
 
+        loadLinks(function(linksOK) {
+
+            loadIcons(function(iconsOK) {
+
+                updateStats();
                 renderFiles();
 
-                showStatus(
-                    "✓ " + allFiles.length +
-                    " archivos cargados correctamente"
-                );
+                if (!filesOK && !linksOK) {
+                    showStatus(
+                        "ERROR: No se pudo conectar con GitHub.",
+                        true
+                    );
+                } else {
+                    var message =
+                        "✓ " + allFiles.length +
+                        " ELEMENTOS CARGADOS";
+
+                    if (!iconsOK) {
+                        message += " · ICONOS NO DISPONIBLES";
+                    }
+
+                    showStatus(message, false);
+                }
 
             });
 
@@ -653,6 +1140,14 @@ function startStore() {
 
     });
 }
+
+document.getElementById("refreshButton").onclick = function() {
+    startStore();
+};
+
+/* ======================================
+   INICIAR
+====================================== */
 
 startStore();
 
