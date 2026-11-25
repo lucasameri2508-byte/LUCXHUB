@@ -602,8 +602,8 @@ header:before {
 
 <header>
     <div class="logo">LUCX<span>HUB</span></div>
-    <div class="subtitle">PLAYSTATION 3 GAMING PLATFORM</div>
-    <div class="header-tag">✦ GAMING LIBRARY ONLINE ✦</div>
+    <div class="subtitle">PLATAFORMA DE JUEGOS PLAYSTATION 3</div>
+    <div class="header-tag">✦ BIBLIOTECA GAMER EN LÍNEA ✦</div>
 </header>
 
 <main class="container">
@@ -616,7 +616,7 @@ header:before {
             desde una biblioteca organizada en un solo lugar.
         </p>
         <div class="hero-label">
-            ◆ GAMES • APPS • TOOLS • DOWNLOADS
+            ◆ JUEGOS • APPS • HERRAMIENTAS • DESCARGAS
         </div>
     </section>
 
@@ -627,7 +627,7 @@ header:before {
         </div>
         <div class="stat">
             <div class="stat-number" id="githubCount">0</div>
-            <div class="stat-label">GITHUB</div>
+            <div class="stat-label">DIRECTO</div>
         </div>
         <div class="stat">
             <div class="stat-number" id="mediafireCount">0</div>
@@ -638,7 +638,7 @@ header:before {
     <section class="catalog-panel">
         <div class="heading">
             <h2><span>✦</span> EXPLORAR CATÁLOGO</h2>
-            <small>LUCXHUB LIBRARY</small>
+            <small>BIBLIOTECA LUCXHUB</small>
         </div>
 
         <div class="search-row">
@@ -677,10 +677,10 @@ header:before {
 <footer class="footer">
     <div class="footer-logo">LUCX<span>HUB</span></div>
     <div class="footer-text">
-        PLAYSTATION 3 • GAMING PLATFORM • 2026
+        PLAYSTATION 3 • PLATAFORMA DE JUEGOS • 2026
     </div>
     <div class="footer-text">
-        BUILT FOR THE GAMING COMMUNITY
+        HECHO POR LUCAS AMERI
     </div>
 </footer>
 
@@ -1030,8 +1030,8 @@ function renderFiles() {
         button.href = file.download;
 
         if (file.external) {
-            button.className += " external";
-            button.textContent = "↗ ABRIR MEDIAFIRE";
+            
+            button.textContent = "↓ DESCARGAR";
             button.target = "_blank";
             button.rel = "noopener noreferrer";
         } else {
@@ -1084,7 +1084,7 @@ function startStore() {
     showStatus("CARGANDO BIBLIOTECA...");
 
     document.getElementById("grid").innerHTML =
-        '<div class="empty">CONECTANDO CON GITHUB...</div>';
+        '<div class="empty">ACTUALIZANDO...</div>';
 
     loadFiles(function(filesOK) {
         loadLinks(function(linksOK) {
@@ -1094,7 +1094,7 @@ function startStore() {
 
                 if (!filesOK && !linksOK) {
                     showStatus(
-                        "ERROR: NO SE PUDO CONECTAR CON GITHUB",
+                        "ERROR: NO SE PUDO ACTUALIZAR",
                         true
                     );
                 } else {
